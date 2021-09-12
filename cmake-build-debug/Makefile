@@ -170,6 +170,114 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/main.c.s
 .PHONY : main.c.s
 
+source/commander.o: source/commander.c.o
+
+.PHONY : source/commander.o
+
+# target to build an object file
+source/commander.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/commander.c.o
+.PHONY : source/commander.c.o
+
+source/commander.i: source/commander.c.i
+
+.PHONY : source/commander.i
+
+# target to preprocess a source file
+source/commander.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/commander.c.i
+.PHONY : source/commander.c.i
+
+source/commander.s: source/commander.c.s
+
+.PHONY : source/commander.s
+
+# target to generate assembly for a file
+source/commander.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/commander.c.s
+.PHONY : source/commander.c.s
+
+source/echo.o: source/echo.c.o
+
+.PHONY : source/echo.o
+
+# target to build an object file
+source/echo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/echo.c.o
+.PHONY : source/echo.c.o
+
+source/echo.i: source/echo.c.i
+
+.PHONY : source/echo.i
+
+# target to preprocess a source file
+source/echo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/echo.c.i
+.PHONY : source/echo.c.i
+
+source/echo.s: source/echo.c.s
+
+.PHONY : source/echo.s
+
+# target to generate assembly for a file
+source/echo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/echo.c.s
+.PHONY : source/echo.c.s
+
+source/prompt.o: source/prompt.c.o
+
+.PHONY : source/prompt.o
+
+# target to build an object file
+source/prompt.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/prompt.c.o
+.PHONY : source/prompt.c.o
+
+source/prompt.i: source/prompt.c.i
+
+.PHONY : source/prompt.i
+
+# target to preprocess a source file
+source/prompt.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/prompt.c.i
+.PHONY : source/prompt.c.i
+
+source/prompt.s: source/prompt.c.s
+
+.PHONY : source/prompt.s
+
+# target to generate assembly for a file
+source/prompt.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/prompt.c.s
+.PHONY : source/prompt.c.s
+
+source/string_func.o: source/string_func.c.o
+
+.PHONY : source/string_func.o
+
+# target to build an object file
+source/string_func.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/string_func.c.o
+.PHONY : source/string_func.c.o
+
+source/string_func.i: source/string_func.c.i
+
+.PHONY : source/string_func.i
+
+# target to preprocess a source file
+source/string_func.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/string_func.c.i
+.PHONY : source/string_func.c.i
+
+source/string_func.s: source/string_func.c.s
+
+.PHONY : source/string_func.s
+
+# target to generate assembly for a file
+source/string_func.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/string_func.c.s
+.PHONY : source/string_func.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -182,6 +290,18 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... source/commander.o"
+	@echo "... source/commander.i"
+	@echo "... source/commander.s"
+	@echo "... source/echo.o"
+	@echo "... source/echo.i"
+	@echo "... source/echo.s"
+	@echo "... source/prompt.o"
+	@echo "... source/prompt.i"
+	@echo "... source/prompt.s"
+	@echo "... source/string_func.o"
+	@echo "... source/string_func.i"
+	@echo "... source/string_func.s"
 .PHONY : help
 
 
