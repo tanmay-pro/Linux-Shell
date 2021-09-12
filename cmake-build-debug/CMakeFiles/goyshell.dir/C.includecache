@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+stdio.h
+-
+fcntl.h
+-
+errno.h
+-
+stdlib.h
+-
+sys/stat.h
+-
+unistd.h
+-
+string.h
+-
+sys/types.h
+-
+ctype.h
+-
+pwd.h
+-
+
+/home/tanmaypro/Desktop/git/goyshell/source/string_func.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+

@@ -1,0 +1,26 @@
+#ifndef GOYSHELL_FUNCTION_DEF_H
+#define GOYSHELL_FUNCTION_DEF_H
+
+#include <stdio.h>
+#include <fcntl.h>
+#include <errno.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#include <string.h>
+#include <sys/types.h>
+#include <ctype.h>
+#include<pwd.h>
+
+#define br printf("\n")
+#define max_path_size 1000
+
+const char *getUserName(); //Location: prompt.c // Function: To get Username of User
+const char *getSysName(); //Location: prompt.c // Function: To get System Name
+char *trimString(char *str); //Location: string_func.c // Function: To get Simplified Command after trimming
+char* substr(const char *src, int m, int n); // Location: string_func.c // Function: To get substring of a string
+void echo_func(char *str); //Location: echo.c // Function: Echo Command
+int decide_command(char *str); //Location: commander.c // Function: Decide what to implement
+char *remove_ws_middle(char* str); // Location; string_func.c // Function: remove all whitespaces from in between string an replace with one whitespace
+
+#endif

@@ -90,17 +90,77 @@ CMakeFiles/goyshell.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/goyshell.dir/main.c.s"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tanmaypro/Desktop/git/goyshell/main.c -o CMakeFiles/goyshell.dir/main.c.s
 
+CMakeFiles/goyshell.dir/source/prompt.c.o: CMakeFiles/goyshell.dir/flags.make
+CMakeFiles/goyshell.dir/source/prompt.c.o: ../source/prompt.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/goyshell.dir/source/prompt.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/goyshell.dir/source/prompt.c.o   -c /home/tanmaypro/Desktop/git/goyshell/source/prompt.c
+
+CMakeFiles/goyshell.dir/source/prompt.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/goyshell.dir/source/prompt.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tanmaypro/Desktop/git/goyshell/source/prompt.c > CMakeFiles/goyshell.dir/source/prompt.c.i
+
+CMakeFiles/goyshell.dir/source/prompt.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/goyshell.dir/source/prompt.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tanmaypro/Desktop/git/goyshell/source/prompt.c -o CMakeFiles/goyshell.dir/source/prompt.c.s
+
+CMakeFiles/goyshell.dir/source/string_func.c.o: CMakeFiles/goyshell.dir/flags.make
+CMakeFiles/goyshell.dir/source/string_func.c.o: ../source/string_func.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/goyshell.dir/source/string_func.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/goyshell.dir/source/string_func.c.o   -c /home/tanmaypro/Desktop/git/goyshell/source/string_func.c
+
+CMakeFiles/goyshell.dir/source/string_func.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/goyshell.dir/source/string_func.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tanmaypro/Desktop/git/goyshell/source/string_func.c > CMakeFiles/goyshell.dir/source/string_func.c.i
+
+CMakeFiles/goyshell.dir/source/string_func.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/goyshell.dir/source/string_func.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tanmaypro/Desktop/git/goyshell/source/string_func.c -o CMakeFiles/goyshell.dir/source/string_func.c.s
+
+CMakeFiles/goyshell.dir/source/echo.c.o: CMakeFiles/goyshell.dir/flags.make
+CMakeFiles/goyshell.dir/source/echo.c.o: ../source/echo.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/goyshell.dir/source/echo.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/goyshell.dir/source/echo.c.o   -c /home/tanmaypro/Desktop/git/goyshell/source/echo.c
+
+CMakeFiles/goyshell.dir/source/echo.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/goyshell.dir/source/echo.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tanmaypro/Desktop/git/goyshell/source/echo.c > CMakeFiles/goyshell.dir/source/echo.c.i
+
+CMakeFiles/goyshell.dir/source/echo.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/goyshell.dir/source/echo.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tanmaypro/Desktop/git/goyshell/source/echo.c -o CMakeFiles/goyshell.dir/source/echo.c.s
+
+CMakeFiles/goyshell.dir/source/commander.c.o: CMakeFiles/goyshell.dir/flags.make
+CMakeFiles/goyshell.dir/source/commander.c.o: ../source/commander.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/goyshell.dir/source/commander.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/goyshell.dir/source/commander.c.o   -c /home/tanmaypro/Desktop/git/goyshell/source/commander.c
+
+CMakeFiles/goyshell.dir/source/commander.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/goyshell.dir/source/commander.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/tanmaypro/Desktop/git/goyshell/source/commander.c > CMakeFiles/goyshell.dir/source/commander.c.i
+
+CMakeFiles/goyshell.dir/source/commander.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/goyshell.dir/source/commander.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/tanmaypro/Desktop/git/goyshell/source/commander.c -o CMakeFiles/goyshell.dir/source/commander.c.s
+
 # Object files for target goyshell
 goyshell_OBJECTS = \
-"CMakeFiles/goyshell.dir/main.c.o"
+"CMakeFiles/goyshell.dir/main.c.o" \
+"CMakeFiles/goyshell.dir/source/prompt.c.o" \
+"CMakeFiles/goyshell.dir/source/string_func.c.o" \
+"CMakeFiles/goyshell.dir/source/echo.c.o" \
+"CMakeFiles/goyshell.dir/source/commander.c.o"
 
 # External object files for target goyshell
 goyshell_EXTERNAL_OBJECTS =
 
 goyshell: CMakeFiles/goyshell.dir/main.c.o
+goyshell: CMakeFiles/goyshell.dir/source/prompt.c.o
+goyshell: CMakeFiles/goyshell.dir/source/string_func.c.o
+goyshell: CMakeFiles/goyshell.dir/source/echo.c.o
+goyshell: CMakeFiles/goyshell.dir/source/commander.c.o
 goyshell: CMakeFiles/goyshell.dir/build.make
 goyshell: CMakeFiles/goyshell.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable goyshell"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable goyshell"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/goyshell.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

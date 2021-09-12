@@ -76,7 +76,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/include/function_def.h">
+			<Option target="goyshell"/>
+		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/main.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/commander.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/echo.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/prompt.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/string_func.c">
 			<Option target="goyshell"/>
 		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/CMakeLists.txt">
