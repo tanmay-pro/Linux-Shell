@@ -82,13 +82,22 @@
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/main.c">
 			<Option target="goyshell"/>
 		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/cd.c">
+			<Option target="goyshell"/>
+		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/commander.c">
 			<Option target="goyshell"/>
 		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/echo.c">
 			<Option target="goyshell"/>
 		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/ls.c">
+			<Option target="goyshell"/>
+		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/prompt.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/pwd.c">
 			<Option target="goyshell"/>
 		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/string_func.c">

@@ -3,13 +3,34 @@
 
 int decide_command(char *str)
 {
-	if(strcmp(substr(str, 0, 4), "echo") == 0)
+	char cpy[strlen(str) + 1];
+	strcpy(cpy, str);
+	char *token , *saveptr = NULL;
+	token = strtok_r(cpy, " \t", &saveptr);
+
+	if(strcmp(token, "echo") == 0)
 	{
 		echo_func(str);
 		return 1;
 	}
-	else if(strcmp(substr(str, 0, 4), "exit") == 0 || strcmp(substr(str, 0, 4), "quit") == 0)
+	else if(strcmp(token, "pwd") == 0)
+	{
+		pwd_func();
+		return 1;
+	}
+	else if(strcmp(token, "exit") == 0 || strcmp(token, "quit") == 0)
 	{
 		return 0;
 	}
+	else if(strcmp(token, "cd") == 0)
+	{
+		cd(str);
+		return 1;
+	}
+	else if(strcmp(token, "ls") == 0)
+	{
+		ls();
+		return 1;
+	}
+	return 0;
 }

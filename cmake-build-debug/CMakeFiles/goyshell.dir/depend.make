@@ -4,6 +4,9 @@
 CMakeFiles/goyshell.dir/main.c.o: ../include/function_def.h
 CMakeFiles/goyshell.dir/main.c.o: ../main.c
 
+CMakeFiles/goyshell.dir/source/cd.c.o: ../include/function_def.h
+CMakeFiles/goyshell.dir/source/cd.c.o: ../source/cd.c
+
 CMakeFiles/goyshell.dir/source/commander.c.o: ../include/function_def.h
 CMakeFiles/goyshell.dir/source/commander.c.o: ../source/commander.c
 
@@ -12,6 +15,9 @@ CMakeFiles/goyshell.dir/source/echo.c.o: ../source/echo.c
 
 CMakeFiles/goyshell.dir/source/prompt.c.o: ../include/function_def.h
 CMakeFiles/goyshell.dir/source/prompt.c.o: ../source/prompt.c
+
+CMakeFiles/goyshell.dir/source/pwd.c.o: ../include/function_def.h
+CMakeFiles/goyshell.dir/source/pwd.c.o: ../source/pwd.c
 
 CMakeFiles/goyshell.dir/source/string_func.c.o: ../include/function_def.h
 CMakeFiles/goyshell.dir/source/string_func.c.o: ../source/string_func.c

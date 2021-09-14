@@ -4,6 +4,9 @@
 CMakeFiles/goyshell.dir/main.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/main.c
+CMakeFiles/goyshell.dir/source/cd.c.o
+ /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/source/cd.c
 CMakeFiles/goyshell.dir/source/commander.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/commander.c
@@ -13,6 +16,9 @@ CMakeFiles/goyshell.dir/source/echo.c.o
 CMakeFiles/goyshell.dir/source/prompt.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/prompt.c
+CMakeFiles/goyshell.dir/source/pwd.c.o
+ /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/source/pwd.c
 CMakeFiles/goyshell.dir/source/string_func.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/string_func.c
