@@ -16,7 +16,7 @@ const char *getSysName()
 {
 	char *hostbuffer;
 	hostbuffer = (char*)malloc(256 * sizeof(char));
-	hostbuffer[256] = '\0';
+	hostbuffer[255] = '\0';
 	int return_val = gethostname(hostbuffer, 255);
 	if(return_val == 0)
 	{

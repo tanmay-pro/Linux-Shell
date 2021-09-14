@@ -10,10 +10,13 @@
 #include <string.h>
 #include <sys/types.h>
 #include <ctype.h>
-#include<pwd.h>
+#include <pwd.h>
 
 #define br printf("\n")
 #define max_path_size 1000
+
+char path[max_path_size]; // To Get Absolute path at any time
+char home[max_path_size];
 
 const char *getUserName(); //Location: prompt.c // Function: To get Username of User
 const char *getSysName(); //Location: prompt.c // Function: To get System Name
@@ -21,6 +24,10 @@ char *trimString(char *str); //Location: string_func.c // Function: To get Simpl
 char* substr(const char *src, int m, int n); // Location: string_func.c // Function: To get substring of a string
 void echo_func(char *str); //Location: echo.c // Function: Echo Command
 int decide_command(char *str); //Location: commander.c // Function: Decide what to implement
-char *remove_ws_middle(char* str); // Location; string_func.c // Function: remove all whitespaces from in between string an replace with one whitespace
+char *remove_ws_middle(char* str); // Location: string_func.c // Function: remove all whitespaces from in between string and replace with one whitespace
+void pwd_func(); // Location: pwd.c // Function: Print present working directory
+int x_part_of_y(char *str1, char *str2); // Location: string_func.c // Function: Check if x is a substring of y from starting index 0
+void cd(char *str); // Location: cd.c // Function: Perform change directory operation
+void ls(); // Location: ls.c // Function: Perform ls operation
 
 #endif

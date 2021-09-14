@@ -22,7 +22,7 @@ char *trimString(char *startptr)
 
 char* substr(const char *src, int m, int n)
 {
-	int len = n - m;
+	int len = n - m + 1;
 	char *dest = (char*)malloc(sizeof(char) * (len + 1));
 	strncpy(dest, (src + m), len);
 	dest[len] = '\0';
@@ -31,7 +31,7 @@ char* substr(const char *src, int m, int n)
 
 char *remove_ws_middle(char *str)
 {
-	char *final = (char*)malloc(sizeof(char)* (strlen(str)));
+	char *final = (char*)malloc(sizeof(char)* (strlen(str) + 1));
 	int pos = 0;
 	final[pos] = str[0];
 	pos++;
@@ -43,10 +43,28 @@ char *remove_ws_middle(char *str)
 		}
 		else
 		{
-			final[pos] = str[i]	;
+			final[pos] = str[i];
 			pos++;
 		}
 	}
 	final[pos] = '\0';
 	return final;
+}
+
+int x_part_of_y(char *str1, char *str2)
+{
+	int set = 0;
+	for(int i=1; i<= strlen(str2); i++)
+	{
+		if(strcmp(substr(str2, 0, i), str1) == 0)
+		{
+			set = 1;
+			break;
+		}
+	}
+	if(set)
+		return 1;
+	else
+		return 0;
+	
 }

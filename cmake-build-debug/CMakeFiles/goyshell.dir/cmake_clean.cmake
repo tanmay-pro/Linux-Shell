@@ -1,8 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/goyshell.dir/main.c.o"
+  "CMakeFiles/goyshell.dir/source/cd.c.o"
   "CMakeFiles/goyshell.dir/source/commander.c.o"
   "CMakeFiles/goyshell.dir/source/echo.c.o"
+  "CMakeFiles/goyshell.dir/source/ls.c.o"
   "CMakeFiles/goyshell.dir/source/prompt.c.o"
+  "CMakeFiles/goyshell.dir/source/pwd.c.o"
   "CMakeFiles/goyshell.dir/source/string_func.c.o"
   "goyshell"
   "goyshell.pdb"
