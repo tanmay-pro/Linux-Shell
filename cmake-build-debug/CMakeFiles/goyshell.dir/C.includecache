@@ -17,6 +17,8 @@ stdlib.h
 -
 sys/stat.h
 -
+dirent.h
+-
 unistd.h
 -
 string.h
@@ -28,7 +30,35 @@ ctype.h
 pwd.h
 -
 
+/home/tanmaypro/Desktop/git/goyshell/main.c
+./include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
 /home/tanmaypro/Desktop/git/goyshell/source/cd.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/commander.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/echo.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/ls.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/prompt.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/pwd.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/string_func.c
 ../include/function_def.h
 /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
 

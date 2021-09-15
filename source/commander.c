@@ -29,7 +29,7 @@ int decide_command(char *str)
 	}
 	else if(strcmp(token, "ls") == 0)
 	{
-		ls();
+		ls_decider(str);
 		return 1;
 	}
 	return 0;

@@ -6,6 +6,7 @@
 #include <errno.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <dirent.h>
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
@@ -28,6 +29,11 @@ char *remove_ws_middle(char* str); // Location: string_func.c // Function: remov
 void pwd_func(); // Location: pwd.c // Function: Print present working directory
 int x_part_of_y(char *str1, char *str2); // Location: string_func.c // Function: Check if x is a substring of y from starting index 0
 void cd(char *str); // Location: cd.c // Function: Perform change directory operation
-void ls(); // Location: ls.c // Function: Perform ls operation
+void ls_decider(char *str); // Location: ls.c // Function: Perform ls operation
+void ls_a(char *str);
+void ls_l(char *str);
+void ls_al(char *str);
+void ls(char *str);
+
 
 #endif

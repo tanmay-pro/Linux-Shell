@@ -66,5 +66,4 @@ int x_part_of_y(char *str1, char *str2)
 		return 1;
 	else
 		return 0;
-	
 }

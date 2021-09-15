@@ -13,6 +13,9 @@ CMakeFiles/goyshell.dir/source/commander.c.o: ../source/commander.c
 CMakeFiles/goyshell.dir/source/echo.c.o: ../include/function_def.h
 CMakeFiles/goyshell.dir/source/echo.c.o: ../source/echo.c
 
+CMakeFiles/goyshell.dir/source/ls.c.o: ../include/function_def.h
+CMakeFiles/goyshell.dir/source/ls.c.o: ../source/ls.c
+
 CMakeFiles/goyshell.dir/source/prompt.c.o: ../include/function_def.h
 CMakeFiles/goyshell.dir/source/prompt.c.o: ../source/prompt.c
 
