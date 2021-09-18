@@ -25,14 +25,24 @@ string.h
 -
 sys/types.h
 -
+sys/wait.h
+-
 ctype.h
 -
 pwd.h
 -
+stdbool.h
+-
+
+/home/tanmaypro/Desktop/git/goyshell/include/queue.h
+function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
 
 /home/tanmaypro/Desktop/git/goyshell/main.c
 ./include/function_def.h
 /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+./include/queue.h
+/home/tanmaypro/Desktop/git/goyshell/include/queue.h
 
 /home/tanmaypro/Desktop/git/goyshell/source/cd.c
 ../include/function_def.h
@@ -46,7 +56,21 @@ pwd.h
 ../include/function_def.h
 /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
 
+/home/tanmaypro/Desktop/git/goyshell/source/fg_bg.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/history.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+../include/queue.h
+/home/tanmaypro/Desktop/git/goyshell/include/queue.h
+
 /home/tanmaypro/Desktop/git/goyshell/source/ls.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/pinfo.c
 ../include/function_def.h
 /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
 
@@ -55,6 +79,14 @@ pwd.h
 /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
 
 /home/tanmaypro/Desktop/git/goyshell/source/pwd.c
+../include/function_def.h
+/home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/queue.c
+../include/queue.h
+/home/tanmaypro/Desktop/git/goyshell/include/queue.h
+
+/home/tanmaypro/Desktop/git/goyshell/source/repeat.c
 ../include/function_def.h
 /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
 

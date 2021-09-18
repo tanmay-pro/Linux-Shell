@@ -10,14 +10,26 @@
 #include <unistd.h>
 #include <string.h>
 #include <sys/types.h>
+#include <time.h>
+#include <sys/wait.h>
 #include <ctype.h>
 #include <pwd.h>
+#include <stdbool.h>
+#include <limits.h>
+#include <sys/utsname.h>
+#include <grp.h>
 
 #define br printf("\n")
 #define max_path_size 1000
+#define max_number_flags 10
+#define max_size_flags 100
+#define max_command_size 1000
+#define max_size 200
+#define max_date_size 200
 
 char path[max_path_size]; // To Get Absolute path at any time
 char home[max_path_size];
+char *prev_des;
 
 const char *getUserName(); //Location: prompt.c // Function: To get Username of User
 const char *getSysName(); //Location: prompt.c // Function: To get System Name
@@ -34,6 +46,11 @@ void ls_a(char *str);
 void ls_l(char *str);
 void ls_al(char *str);
 void ls(char *str);
-
+void fg(char *str);
+void bg(char *str);
+void fg_bg_decider(char *str);
+void repeat(char *str);
+void display_history();
+void pinfo(char *str);
 
 #endif

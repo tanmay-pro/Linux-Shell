@@ -3,6 +3,7 @@
 
 CMakeFiles/goyshell.dir/main.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/include/queue.h
  /home/tanmaypro/Desktop/git/goyshell/main.c
 CMakeFiles/goyshell.dir/source/cd.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
@@ -13,15 +14,32 @@ CMakeFiles/goyshell.dir/source/commander.c.o
 CMakeFiles/goyshell.dir/source/echo.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/echo.c
+CMakeFiles/goyshell.dir/source/fg_bg.c.o
+ /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/source/fg_bg.c
+CMakeFiles/goyshell.dir/source/history.c.o
+ /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/include/queue.h
+ /home/tanmaypro/Desktop/git/goyshell/source/history.c
 CMakeFiles/goyshell.dir/source/ls.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/ls.c
+CMakeFiles/goyshell.dir/source/pinfo.c.o
+ /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/source/pinfo.c
 CMakeFiles/goyshell.dir/source/prompt.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/prompt.c
 CMakeFiles/goyshell.dir/source/pwd.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/pwd.c
+CMakeFiles/goyshell.dir/source/queue.c.o
+ /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/include/queue.h
+ /home/tanmaypro/Desktop/git/goyshell/source/queue.c
+CMakeFiles/goyshell.dir/source/repeat.c.o
+ /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
+ /home/tanmaypro/Desktop/git/goyshell/source/repeat.c
 CMakeFiles/goyshell.dir/source/string_func.c.o
  /home/tanmaypro/Desktop/git/goyshell/include/function_def.h
  /home/tanmaypro/Desktop/git/goyshell/source/string_func.c

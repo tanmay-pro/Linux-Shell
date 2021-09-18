@@ -1,19 +1,21 @@
 #include "./include/function_def.h"
-int main() {
-	
+#include "./include/queue.h"
+int main()
+{
+	int number_of_commands = 0;
 	printf("\033[2J\033[1;1H"); // To Clear Screen
 	const char *username;
 	const char *sysname;
 	username = getUserName();
 	sysname = getSysName();
-	
+	ptrnode history;
+	history = createnode("header");
 	getcwd(home, max_path_size);
-	
-	char *command = NULL, *ptr = NULL, *token;
-	char delim[] = "\n;";
-	
+	prev_des = (char*)calloc(max_path_size, sizeof(char));
+	prev_des[0] = '\0';
 	while(1)
 	{
+		char *command = NULL, *ptr = NULL, *token;
 		getcwd(path, max_path_size);
 		
 		char temp[max_path_size];
@@ -33,9 +35,22 @@ int main() {
 			printf("Error in taking command input\n");
 			exit(1);
 		} // If Error in taking command input
+		else
+		{
+			if(number_of_commands < 20)
+			{
+				push_front(history, command);
+				number_of_commands++;
+			}
+			else
+			{
+				eject(history);
+				push_front(history, command);
+			}
+			
+		}
 		
-		token = strtok_r(command, delim, &ptr);
-		int set = 1;
+		token = strtok_r(command,  "\n;", &ptr);
 		while(token != NULL)
 		{
 			getcwd(path, max_path_size);
@@ -50,16 +65,11 @@ int main() {
 			int exiter = decide_command(token);
 			if(!exiter)
 			{
-				set = 0;
-				break;
+				exit(0);
 			}
-			token = strtok_r(NULL, delim, &ptr);
+			token = strtok_r(NULL,  "\n;", &ptr);
 		}
 		free(command);
-		if(set == 0)
-		{
-			break;
-		}
 	}
 	return 0;
 }

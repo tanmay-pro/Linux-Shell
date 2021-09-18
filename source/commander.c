@@ -32,5 +32,24 @@ int decide_command(char *str)
 		ls_decider(str);
 		return 1;
 	}
-	return 0;
+	else if(strcmp(token, "repeat") == 0)
+	{
+		repeat(str);
+		return 1;
+	}
+	else if(strcmp(token, "history") == 0)
+	{
+		display_history();
+		return 1;
+	}
+	else if(strcmp(token, "pinfo") == 0)
+	{
+		pinfo(str);
+		return 1;
+	}
+	else
+	{
+		fg_bg_decider(str);
+		return 1;
+	}
 }

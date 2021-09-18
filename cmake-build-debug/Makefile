@@ -251,6 +251,60 @@ source/echo.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/echo.c.s
 .PHONY : source/echo.c.s
 
+source/fg_bg.o: source/fg_bg.c.o
+
+.PHONY : source/fg_bg.o
+
+# target to build an object file
+source/fg_bg.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/fg_bg.c.o
+.PHONY : source/fg_bg.c.o
+
+source/fg_bg.i: source/fg_bg.c.i
+
+.PHONY : source/fg_bg.i
+
+# target to preprocess a source file
+source/fg_bg.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/fg_bg.c.i
+.PHONY : source/fg_bg.c.i
+
+source/fg_bg.s: source/fg_bg.c.s
+
+.PHONY : source/fg_bg.s
+
+# target to generate assembly for a file
+source/fg_bg.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/fg_bg.c.s
+.PHONY : source/fg_bg.c.s
+
+source/history.o: source/history.c.o
+
+.PHONY : source/history.o
+
+# target to build an object file
+source/history.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/history.c.o
+.PHONY : source/history.c.o
+
+source/history.i: source/history.c.i
+
+.PHONY : source/history.i
+
+# target to preprocess a source file
+source/history.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/history.c.i
+.PHONY : source/history.c.i
+
+source/history.s: source/history.c.s
+
+.PHONY : source/history.s
+
+# target to generate assembly for a file
+source/history.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/history.c.s
+.PHONY : source/history.c.s
+
 source/ls.o: source/ls.c.o
 
 .PHONY : source/ls.o
@@ -277,6 +331,33 @@ source/ls.s: source/ls.c.s
 source/ls.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/ls.c.s
 .PHONY : source/ls.c.s
+
+source/pinfo.o: source/pinfo.c.o
+
+.PHONY : source/pinfo.o
+
+# target to build an object file
+source/pinfo.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/pinfo.c.o
+.PHONY : source/pinfo.c.o
+
+source/pinfo.i: source/pinfo.c.i
+
+.PHONY : source/pinfo.i
+
+# target to preprocess a source file
+source/pinfo.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/pinfo.c.i
+.PHONY : source/pinfo.c.i
+
+source/pinfo.s: source/pinfo.c.s
+
+.PHONY : source/pinfo.s
+
+# target to generate assembly for a file
+source/pinfo.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/pinfo.c.s
+.PHONY : source/pinfo.c.s
 
 source/prompt.o: source/prompt.c.o
 
@@ -332,6 +413,60 @@ source/pwd.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/pwd.c.s
 .PHONY : source/pwd.c.s
 
+source/queue.o: source/queue.c.o
+
+.PHONY : source/queue.o
+
+# target to build an object file
+source/queue.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/queue.c.o
+.PHONY : source/queue.c.o
+
+source/queue.i: source/queue.c.i
+
+.PHONY : source/queue.i
+
+# target to preprocess a source file
+source/queue.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/queue.c.i
+.PHONY : source/queue.c.i
+
+source/queue.s: source/queue.c.s
+
+.PHONY : source/queue.s
+
+# target to generate assembly for a file
+source/queue.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/queue.c.s
+.PHONY : source/queue.c.s
+
+source/repeat.o: source/repeat.c.o
+
+.PHONY : source/repeat.o
+
+# target to build an object file
+source/repeat.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/repeat.c.o
+.PHONY : source/repeat.c.o
+
+source/repeat.i: source/repeat.c.i
+
+.PHONY : source/repeat.i
+
+# target to preprocess a source file
+source/repeat.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/repeat.c.i
+.PHONY : source/repeat.c.i
+
+source/repeat.s: source/repeat.c.s
+
+.PHONY : source/repeat.s
+
+# target to generate assembly for a file
+source/repeat.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/goyshell.dir/build.make CMakeFiles/goyshell.dir/source/repeat.c.s
+.PHONY : source/repeat.c.s
+
 source/string_func.o: source/string_func.c.o
 
 .PHONY : source/string_func.o
@@ -380,15 +515,30 @@ help:
 	@echo "... source/echo.o"
 	@echo "... source/echo.i"
 	@echo "... source/echo.s"
+	@echo "... source/fg_bg.o"
+	@echo "... source/fg_bg.i"
+	@echo "... source/fg_bg.s"
+	@echo "... source/history.o"
+	@echo "... source/history.i"
+	@echo "... source/history.s"
 	@echo "... source/ls.o"
 	@echo "... source/ls.i"
 	@echo "... source/ls.s"
+	@echo "... source/pinfo.o"
+	@echo "... source/pinfo.i"
+	@echo "... source/pinfo.s"
 	@echo "... source/prompt.o"
 	@echo "... source/prompt.i"
 	@echo "... source/prompt.s"
 	@echo "... source/pwd.o"
 	@echo "... source/pwd.i"
 	@echo "... source/pwd.s"
+	@echo "... source/queue.o"
+	@echo "... source/queue.i"
+	@echo "... source/queue.s"
+	@echo "... source/repeat.o"
+	@echo "... source/repeat.i"
+	@echo "... source/repeat.s"
 	@echo "... source/string_func.o"
 	@echo "... source/string_func.i"
 	@echo "... source/string_func.s"

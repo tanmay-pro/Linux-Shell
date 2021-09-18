@@ -8,9 +8,14 @@ set(CMAKE_DEPENDS_CHECK_C
   "/home/tanmaypro/Desktop/git/goyshell/source/cd.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/cd.c.o"
   "/home/tanmaypro/Desktop/git/goyshell/source/commander.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/commander.c.o"
   "/home/tanmaypro/Desktop/git/goyshell/source/echo.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/echo.c.o"
+  "/home/tanmaypro/Desktop/git/goyshell/source/fg_bg.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/fg_bg.c.o"
+  "/home/tanmaypro/Desktop/git/goyshell/source/history.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/history.c.o"
   "/home/tanmaypro/Desktop/git/goyshell/source/ls.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/ls.c.o"
+  "/home/tanmaypro/Desktop/git/goyshell/source/pinfo.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/pinfo.c.o"
   "/home/tanmaypro/Desktop/git/goyshell/source/prompt.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/prompt.c.o"
   "/home/tanmaypro/Desktop/git/goyshell/source/pwd.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/pwd.c.o"
+  "/home/tanmaypro/Desktop/git/goyshell/source/queue.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/queue.c.o"
+  "/home/tanmaypro/Desktop/git/goyshell/source/repeat.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/repeat.c.o"
   "/home/tanmaypro/Desktop/git/goyshell/source/string_func.c" "/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir/source/string_func.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

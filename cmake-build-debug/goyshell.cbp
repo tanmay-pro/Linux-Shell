@@ -79,6 +79,9 @@
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/include/function_def.h">
 			<Option target="goyshell"/>
 		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/include/queue.h">
+			<Option target="goyshell"/>
+		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/main.c">
 			<Option target="goyshell"/>
 		</Unit>
@@ -91,13 +94,28 @@
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/echo.c">
 			<Option target="goyshell"/>
 		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/fg_bg.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/history.c">
+			<Option target="goyshell"/>
+		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/ls.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/pinfo.c">
 			<Option target="goyshell"/>
 		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/prompt.c">
 			<Option target="goyshell"/>
 		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/pwd.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/queue.c">
+			<Option target="goyshell"/>
+		</Unit>
+		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/repeat.c">
 			<Option target="goyshell"/>
 		</Unit>
 		<Unit filename="/home/tanmaypro/Desktop/git/goyshell/source/string_func.c">
