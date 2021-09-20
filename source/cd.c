@@ -24,7 +24,10 @@ void cd (char *str)
 	token = strtok_r(NULL, " \t\n", &ptr);
 	if(token == NULL)
 	{
-		token = "~";
+		char temp_path[max_path_size];
+		getcwd(temp_path, max_path_size);
+		chdir(home);
+		strcpy(prev_des, temp_path);
 	}
 	else if(token[0] == '~')
 	{

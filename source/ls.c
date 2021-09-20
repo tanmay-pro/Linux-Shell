@@ -209,11 +209,21 @@ void ls_l(char *str)
 			permission_print[10] = '\0';
 			
 			char *modtime = (char *)malloc(20);
-			strftime(modtime, 20, "%b %e %H:%M", localtime(&buf.st_mtime));
-			
+			struct tm *info;
+			info = localtime(&buf.st_mtime);
+			strftime(modtime, 20, "%b %e %H:%M", info);
+			time_t current_time;
+			time(&current_time);
+			time_t pass_time = current_time - buf.st_mtim.tv_sec;
 			printf("%s %d %s %s ", permission_print, (int)buf.st_nlink, (getgrgid(buf.st_gid))->gr_name, (getpwuid(buf.st_uid))->pw_name);
-			//if() // year check
-			printf("%ld %s %s\n", buf.st_size, modtime, name_of_file);
+			if(pass_time < 182*24*3600)
+			{
+				printf("%ld %s %s\n", buf.st_size, modtime, name_of_file);
+			}
+			else
+			{
+				printf("%ld %s %s %s\n", buf.st_size, substr(modtime, 0, 5), substr(asctime(info),(int)strlen(asctime(info)) - 5 ,(int)strlen(asctime(info)) - 2) , name_of_file);
+			}
 		}
 		
 	}
@@ -280,11 +290,6 @@ void ls_al(char *str)
 			
 			struct stat buf;
 			int ret = stat(curPath, &buf);
-//			if(ret < 0)
-//			{
-//				perror("goyshell: ls");
-//				return;
-//			}
 			net_sum += buf.st_blocks;
 		}
 		printf("total %lld\n", net_sum/2);
@@ -300,12 +305,6 @@ void ls_al(char *str)
 			strcat(path_for_stat, name_of_file);
 			struct stat buf;
 			int ret = stat(path_for_stat, &buf);
-//			if(ret < 0)
-//			{
-//				perror("goyshell: ls");
-//				return;
-//			}
-			
 			int permission_types[] = {S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IWGRP, S_IXGRP, S_IROTH, S_IWOTH, S_IXOTH};
 			char permission_chars[3] = {'r', 'w', 'x'};
 			char permission_print[11];
@@ -333,10 +332,21 @@ void ls_al(char *str)
 			permission_print[10] = '\0';
 			
 			char *modtime = (char *)malloc(20);
-			strftime(modtime, 20, "%b %e %H:%M", localtime(&buf.st_mtime));
-			
+			struct tm *info;
+			info = localtime(&buf.st_mtime);
+			strftime(modtime, 20, "%b %e %H:%M", info);
+			time_t current_time;
+			time(&current_time);
+			time_t pass_time = current_time - buf.st_mtim.tv_sec;
 			printf("%s %d %s %s ", permission_print, (int)buf.st_nlink, (getgrgid(buf.st_gid))->gr_name, (getpwuid(buf.st_uid))->pw_name);
-			printf("%ld %s %s\n", buf.st_size, modtime, name_of_file);
+			if(pass_time < 182*24*3600)
+			{
+				printf("%ld %s %s\n", buf.st_size, modtime, name_of_file);
+			}
+			else
+			{
+				printf("%ld %s %s %s\n", buf.st_size, substr(modtime, 0, 5), substr(asctime(info),(int)strlen(asctime(info)) - 5 ,(int)strlen(asctime(info)) - 2) , name_of_file);
+			}
 		}
 		
 	}

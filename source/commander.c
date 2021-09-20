@@ -1,12 +1,12 @@
 // Created by tanmaypro on 12/09/21.
 #include "../include/function_def.h"
 
-int decide_command(char *str)
+int decide_command(char *str, int *process_num)
 {
 	char cpy[strlen(str) + 1];
 	strcpy(cpy, str);
 	char *token , *saveptr = NULL;
-	token = strtok_r(cpy, " \t", &saveptr);
+	token = strtok_r(cpy, " \t\n", &saveptr);
 
 	if(strcmp(token, "echo") == 0)
 	{
@@ -34,12 +34,7 @@ int decide_command(char *str)
 	}
 	else if(strcmp(token, "repeat") == 0)
 	{
-		repeat(str);
-		return 1;
-	}
-	else if(strcmp(token, "history") == 0)
-	{
-		display_history();
+		repeat(str, process_num);
 		return 1;
 	}
 	else if(strcmp(token, "pinfo") == 0)
@@ -49,7 +44,7 @@ int decide_command(char *str)
 	}
 	else
 	{
-		fg_bg_decider(str);
+		fg_bg_decider(str, process_num);
 		return 1;
 	}
 }

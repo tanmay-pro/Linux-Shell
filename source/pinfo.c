@@ -18,7 +18,7 @@ void pinfo(char *str)
 	pid_t pid = getpid();
 	if(arg_counter > 2)
 	{
-		printf("bash: pinfo: invalid number of arguments\n");
+		printf("goyshell: pinfo: invalid number of arguments\n");
 		return;
 	}
 	else if(arg_counter == 2)
@@ -37,15 +37,18 @@ void pinfo(char *str)
 	
 	if(fp == NULL)
 	{
-		printf("bash: pinfo: No process with pid: %d\n", pid);
+		printf("goyshell: pinfo: No process with pid: %d\n", pid);
 		return;
 	}
 	else
 	{
-		char a[max_size], b[max_size], t[max_size];
-		fscanf(fp, "%s %s %s", a, b, t);
+		char a[max_size], t[max_size];
+		fscanf(fp, "%s %s %s", a, a, t);
 		printf("pid -- %d\n", pid);
-		printf("Process Status -- %s\n", t);
+		if(getpgid(pid) == pid)
+			printf("Process Status -- %s+\n", t);
+		else
+			printf("Process Status -- %s\n", t);
 	}
 	
 	char path_vm[max_path_size];
@@ -57,7 +60,7 @@ void pinfo(char *str)
 	
 	if(fp2 == NULL)
 	{
-		printf("bash: pinfo: No process with pid: %d\n", pid);
+		printf("goyshell: pinfo: No process with pid: %d\n", pid);
 		return;
 	}
 	else
@@ -75,7 +78,7 @@ void pinfo(char *str)
 	int ret_val = readlink(path_rest, path_execute, max_size - 1);
 	if(ret_val == -1)
 	{
-		printf("bash: pinfo: Executable path couldn't be accessed");
+		printf("goyshell: pinfo: Executable path couldn't be accessed");
 		return;
 	}
 	path_execute[ret_val] = '\0';
