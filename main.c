@@ -83,15 +83,7 @@ int main()
 	{
 		char *command = NULL, *ptr = NULL, *token;
 		getcwd(path, max_path_size);
-		
-		char temp[max_path_size];
-		temp[0] = '~';
-		temp[1] = '\0';
-		if(x_part_of_y(home, path))
-		{
-			strcpy(path, strcat(temp, substr(path, (int)strlen(home), (int)strlen(path))));
-		} // To Get Relative path if it is above in directory order
-		
+		strcpy(path, get_relative(path));
 		printf("<%s@%s:%s> ", username, sysname, path);
 		
 		size_t comm_inp = 0;
@@ -106,14 +98,7 @@ int main()
 		while(token != NULL)
 		{
 			getcwd(path, max_path_size);
-			
-			char temp2[max_path_size];
-			temp2[0] = '~';
-			temp2[1] = '\0';
-			if(x_part_of_y(home, path))
-			{
-				strcpy(path, strcat(temp2, substr(path, (int)strlen(home), (int)strlen(path))));
-			} // To Get Relative path if it is above in directory order
+			strcpy(path, get_relative(path));
 			int exiter = decide_command(token, &process_num);
 			if(!exiter)
 			{

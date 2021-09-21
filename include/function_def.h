@@ -63,5 +63,6 @@ void fg_bg_decider(char *str, int *proc_se);
 void repeat(char *str, int *proc_se);
 void pinfo(char *str);
 void zom();
+char *get_relative(char *str); // Location: string_func.c // Function: Get relative path from absolute path
 
 #endif

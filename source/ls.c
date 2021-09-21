@@ -177,11 +177,6 @@ void ls_l(char *str)
 			strcat(path_for_stat, name_of_file);
 			struct stat buf;
 			stat(path_for_stat, &buf);
-//			if(ret < 0)
-//			{
-//				perror("goyshell: ls");
-//				return;
-//			}
 			int permission_types[] = {S_IRUSR, S_IWUSR, S_IXUSR, S_IRGRP, S_IWGRP, S_IXGRP, S_IROTH, S_IWOTH, S_IXOTH};
 			char permission_chars[3] = {'r', 'w', 'x'};
 			char permission_print[11];

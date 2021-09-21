@@ -82,13 +82,6 @@ void pinfo(char *str)
 		return;
 	}
 	path_execute[ret_val] = '\0';
-	
-	char temp[max_path_size];
-	temp[0] = '~';
-	temp[1] = '\0';
-	if(x_part_of_y(home, path_execute))
-	{
-		strcpy(path_execute, strcat(temp, substr(path_execute, (int)strlen(home), (int)strlen(path_execute))));
-	}
+	strcpy(path_execute, get_relative(path_execute));
 	printf("Executable Path -- %s\n", path_execute);
 }

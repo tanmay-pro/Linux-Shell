@@ -15,7 +15,7 @@ void cd (char *str)
 	}
 	if(count > 2)
 	{
-		printf("bash: cd: too many arguments\n");
+		printf("goyshell: cd: too many arguments\n");
 		return;
 	}
 	
@@ -40,7 +40,7 @@ void cd (char *str)
 		int ret_val = chdir(newpath);
 		if(ret_val < 0)
 		{
-			printf("bash: cd: %s: No such file or directory\n", token);
+			printf("goyshell: cd: %s: No such file or directory\n", token);
 		}
 		else
 		{
@@ -51,7 +51,7 @@ void cd (char *str)
 	{
 		if(prev_des[0] == '\0')
 		{
-			printf("bash: cd: OLDPWD not set\n");
+			printf("goyshell: cd: OLDPWD not set\n");
 			return;
 		}
 		char temp_path[max_path_size];
@@ -60,19 +60,13 @@ void cd (char *str)
 		int ret_val = chdir(prev_des);
 		if(ret_val < 0)
 		{
-			printf("bash: cd: %s: No such file or directory\n", token);
+			printf("goyshell: cd: %s: No such file or directory\n", token);
 		}
 		else
 		{
 			char curPath[max_path_size];
 			getcwd(curPath, max_path_size);
-			char temp[max_path_size];
-			temp[0] = '~';
-			temp[1] = '\0';
-			if(x_part_of_y(home, curPath))
-			{
-				strcpy(curPath, strcat(temp, substr(curPath, (int)strlen(home), (int)strlen(curPath))));
-			}
+			strcpy(curPath, get_relative(curPath));
 			printf("%s\n", curPath);
 			strcpy(prev_des, temp_path);
 		}
@@ -84,7 +78,7 @@ void cd (char *str)
 		int ret_val = chdir(token);
 		if(ret_val < 0)
 		{
-			printf("bash: cd: %s: No such file or directory\n", token);
+			printf("goyshell: cd: %s: No such file or directory\n", token);
 		}
 		else
 		{

@@ -67,3 +67,15 @@ int x_part_of_y(char *str1, char *str2)
 	else
 		return 0;
 }
+
+char *get_relative(char * str)
+{
+	char temp2[max_path_size];
+	temp2[0] = '~';
+	temp2[1] = '\0';
+	if (x_part_of_y(home, str))
+	{
+		strcpy(str, strcat(temp2, substr(str, (int)strlen(home), (int)strlen(str))));
+	} // To Get Relative path if it is above in directory order
+	return str;
+}
