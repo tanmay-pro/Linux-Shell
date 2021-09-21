@@ -69,7 +69,7 @@ To delete all .o files, run `make clean`.
   * These functions are called only once at the beginning, when the program is executed.
   
 * pwd.c
-  * This class contains only the pwd fucntion.
+  * This c file contains only the pwd fucntion.
   * It displays the absolute path of present working directory.
 
 * repeat.c
