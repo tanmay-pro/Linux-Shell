@@ -59,7 +59,7 @@ void zom()
 			printf("%s with pid %d exited normally\n", print, proc[i].proc_id);
 			proc[i].proc_id = -1;
 		}
-	}
+	}	
 }
 
 int main()
@@ -85,7 +85,6 @@ int main()
 		getcwd(path, max_path_size);
 		strcpy(path, get_relative(path));
 		printf("<%s@%s:%s> ", username, sysname, path);
-		
 		size_t comm_inp = 0;
 		int return_check = getline(&command, &comm_inp, stdin); // Take input commands
 		if(return_check == -1)
@@ -93,7 +92,6 @@ int main()
 			printf("Error in taking command input\n");
 			exit(1);
 		} // If Error in taking command input
-		
 		token = strtok_r(command,  "\n;", &ptr);
 		while(token != NULL)
 		{
@@ -106,7 +104,6 @@ int main()
 			}
 			token = strtok_r(NULL,  "\n;", &ptr);
 		}
-		signal(SIGCHLD, zom);
 		free(command);
 	}
 	return 0;

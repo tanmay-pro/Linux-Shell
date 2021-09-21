@@ -21,6 +21,7 @@ void fg(char *str)
 	int pid = fork();
 	if (pid == 0)
 	{
+		setpgid(0,0);
 		char *ptr = NULL, *token;
 		char *args[max_number_args];
 		int i;
@@ -48,14 +49,18 @@ void fg(char *str)
 	}
 	else
 	{
+		int temp = pid;
+		int shellPid = getpid();
 		signal(SIGTTOU, SIG_IGN);
-		signal(SIGTTIN, SIG_IGN);
-		if(pid == -1) // On failure of fork statement
-		{
-			perror("Couldnt fork");
-			return;
-		}
-		wait(NULL);
+		signal(SIGTTIN, SIG_IGN); // To prevent background processes from interferring with the foreground process
+		tcsetpgrp(0, pid); 
+		tcsetpgrp(1, pid);
+		int status;
+		waitpid(temp, &status, WUNTRACED); // Wait for the child process to finish
+		tcsetpgrp(0, getpgid(shellPid)); 
+		tcsetpgrp(1, getpgid(shellPid));
+		signal(SIGTTOU, SIG_DFL);
+		signal(SIGTTIN, SIG_DFL); // Resume back to default execution
 	}
 }
 

@@ -68,7 +68,7 @@ int x_part_of_y(char *str1, char *str2)
 		return 0;
 }
 
-char *get_relative(char * str)
+char *get_relative(char *str)
 {
 	char temp2[max_path_size];
 	temp2[0] = '~';
