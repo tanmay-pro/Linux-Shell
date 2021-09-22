@@ -94,7 +94,7 @@ int main()
 		int return_check = getline(&command, &comm_inp, stdin); // Take input commands
 		if(return_check == -1)
 		{
-			printf("Error in taking command input\n");
+			printf("goyshell: Error in taking command input\n");
 			exit(1);
 		} // If Error in taking command input
 		token = strtok_r(command,  "\n;", &ptr);
