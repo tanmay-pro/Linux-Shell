@@ -18,7 +18,8 @@ int decide_command(char *str, int *process_num)
 	}
 	else if(strcmp(token, "exit") == 0 || strcmp(token, "quit") == 0)
 	{
-		signal(SIGCHLD, zom);
+		signal(SIGCHLD, null_func);
+		zombie_handler();
 		return 0;
 	}
 	else if(strcmp(token, "cd") == 0)
@@ -41,6 +42,5 @@ int decide_command(char *str, int *process_num)
 	{
 		fg_bg_decider(str, process_num);
 	}
-	signal(SIGCHLD, zom);
 	return 1;
 }

@@ -1,6 +1,6 @@
 #include "./include/function_def.h"
 
-void zom()
+void zombie_handler()
 {
 	int status;
 	int get = waitpid(-1, &status, WNOHANG | WUNTRACED);
@@ -62,6 +62,11 @@ void zom()
 	}	
 }
 
+void null_func()
+{
+	;
+}
+
 int main()
 {
 	int number_of_commands = 0;
@@ -104,6 +109,8 @@ int main()
 			}
 			token = strtok_r(NULL,  "\n;", &ptr);
 		}
+		signal(SIGCHLD, null_func);
+		zombie_handler();
 		free(command);
 	}
 	return 0;

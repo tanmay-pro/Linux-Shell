@@ -62,7 +62,8 @@ void bg(char *str, int *proc_se);  // Location: bg.c // Function: Perform an ope
 void fg_bg_decider(char *str, int *proc_se); // Location: fg_bg.c // Function: Decide whether to implement a foreground process or a bakground process 
 void repeat(char *str, int *proc_se); // Location: repeat.c // Function: Repeat command
 void pinfo(char *str); // Location: pinfo.c // Function: Print Process Information
-void zom();
+void zombie_handler();
+void null_func();
 char *get_relative(char *str); // Location: string_func.c // Function: Get relative path from absolute path
 
 #endif
