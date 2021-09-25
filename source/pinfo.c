@@ -8,7 +8,7 @@ void pinfo(char *str)
 	char cpy[strlen(str) + 1];
 	strcpy(cpy, str);
 	int arg_counter = 0;
-	char *token , *saveptr = NULL;
+	char *token, *saveptr = NULL;
 	token = strtok_r(cpy, " \t\n", &saveptr);
 	while (token != NULL)
 	{
@@ -16,12 +16,12 @@ void pinfo(char *str)
 		token = strtok_r(NULL, " \t\n", &saveptr);
 	}
 	pid_t pid = getpid();
-	if(arg_counter > 2)
+	if (arg_counter > 2)
 	{
 		printf("goyshell: pinfo: invalid number of arguments\n");
 		return;
 	}
-	else if(arg_counter == 2)
+	else if (arg_counter == 2)
 	{
 		token = strtok_r(str, " \t\n", &saveptr);
 		token = strtok_r(NULL, " \t\n", &saveptr);
@@ -32,10 +32,10 @@ void pinfo(char *str)
 	path_status[0] = '\0';
 	strcpy(path_status, generate);
 	strcat(path_status, "stat");
-	
+
 	FILE *fp = fopen(path_status, "r");
-	
-	if(fp == NULL)
+
+	if (fp == NULL)
 	{
 		printf("goyshell: pinfo: No process with pid: %d\n", pid);
 		return;
@@ -45,20 +45,20 @@ void pinfo(char *str)
 		char a[max_size], t[max_size];
 		fscanf(fp, "%s %s %s", a, a, t);
 		printf("pid -- %d\n", pid);
-		if(getpgid(pid) == pid)
+		if (getpgid(pid) == pid)
 			printf("Process Status -- %s+\n", t);
 		else
 			printf("Process Status -- %s\n", t);
 	}
-	
+
 	char path_vm[max_path_size];
 	path_vm[0] = '\0';
 	strcpy(path_vm, generate);
 	strcat(path_vm, "statm");
-	
+
 	FILE *fp2 = fopen(path_vm, "r");
-	
-	if(fp2 == NULL)
+
+	if (fp2 == NULL)
 	{
 		printf("goyshell: pinfo: No process with pid: %d\n", pid);
 		return;
@@ -69,14 +69,14 @@ void pinfo(char *str)
 		fscanf(fp2, "%s", a);
 		printf("memory -- %s {Virtual Memory}\n", a);
 	}
-	
+
 	char path_rest[max_size];
 	strcpy(path_rest, generate);
 	strcat(path_rest, "exe");
-	
+
 	char path_execute[max_size];
 	int ret_val = readlink(path_rest, path_execute, max_size - 1);
-	if(ret_val == -1)
+	if (ret_val == -1)
 	{
 		printf("goyshell: pinfo: Executable path couldn't be accessed");
 		return;
