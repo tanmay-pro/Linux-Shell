@@ -11,6 +11,10 @@ void repeat(char *str, int *procsize)
 	int numb = atoi(token);
 	while(numb--)
 	{
-		decide_command(substr(str, 8 + (int)strlen(token), (int)strlen(str)), procsize);
+		int exiter = decide_command(substr(str, 8 + (int)strlen(token), (int)strlen(str)), procsize);
+		if (!exiter)
+		{
+			exit(0);
+		}
 	}
 }
