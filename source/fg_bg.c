@@ -53,11 +53,9 @@ void fg(char *str)
 		signal(SIGTTOU, SIG_IGN);
 		signal(SIGTTIN, SIG_IGN); // To prevent background processes from interferring with the foreground process
 		tcsetpgrp(0, pid);
-		tcsetpgrp(1, pid);
 		int status;
 		waitpid(temp, &status, WUNTRACED); // Wait for the child process to finish
 		tcsetpgrp(0, getpgid(shellPid));
-		tcsetpgrp(1, getpgid(shellPid));
 		signal(SIGTTOU, SIG_DFL);
 		signal(SIGTTIN, SIG_DFL); // Resume back to default execution
 	}

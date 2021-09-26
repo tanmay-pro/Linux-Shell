@@ -32,7 +32,7 @@ void zombie_handler()
 			{
 				strcpy(print, "Process");
 			}
-			printf("%s with pid %d exited abnormally\n", print, get);	
+			printf("%s with pid %d exited abnormally\n", print, get);
 		}
 	}
 
