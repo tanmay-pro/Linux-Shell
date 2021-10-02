@@ -82,8 +82,8 @@ void input_output_redir(char *file_in, char *file_out, char *str, int *proc_coun
     {
         exit(0);
     }
-    dup2(orig_in_fd, STDIN_FILENO);
     dup2(orig_out_fd, STDOUT_FILENO);
+    dup2(orig_in_fd, STDIN_FILENO);
     close(new_in_fd);
     close(new_out_fd);
     return;
@@ -94,7 +94,7 @@ int redir_decider(char *str, int *proc_count)
     char cpy[strlen(str) + 1];
     strcpy(cpy, str);
     char args[max_number_args][max_size_args];
-    for(int i = max_number_args - 1; i >= 0; i--)
+    for (int i = max_number_args - 1; i >= 0; i--)
     {
         strcpy(args[i], "\0");
     }
@@ -125,10 +125,10 @@ int redir_decider(char *str, int *proc_count)
             printf("goyshell: syntax error near unexpected token `newline'\n");
             return 1;
         }
-        char *new_str;
+        char new_str[max_command_size] = "\0";
         for (int i = 0; i < max_number_args; i++)
         {
-            if (strcmp(args[i], "\0") == 0)
+            if (strcmp(args[i], "") == 0)
             {
                 break;
             }
@@ -151,10 +151,10 @@ int redir_decider(char *str, int *proc_count)
             printf("goyshell: syntax error near unexpected token `newline'\n");
             return 1;
         }
-        char *new_str;
+        char new_str[max_command_size] = "\0";
         for (int i = 0; i < max_number_args; i++)
         {
-            if (strcmp(args[i], "\0") == 0)
+            if (strcmp(args[i], "") == 0)
             {
                 break;
             }
@@ -177,10 +177,10 @@ int redir_decider(char *str, int *proc_count)
             printf("goyshell: syntax error near unexpected token `newline'\n");
             return 1;
         }
-        char *new_str;
+        char new_str[max_command_size] = "\0";
         for (int i = 0; i < max_number_args; i++)
         {
-            if (strcmp(args[i], "\0") == 0)
+            if (strcmp(args[i], "") == 0)
             {
                 break;
             }

@@ -73,4 +73,6 @@ void input_redir(char *file_name, char *str, int *proc_count);
 void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count);
 int redir_decider(char *str, int *proc_count);
 
+void jobs_decider(char *str, int *proc_count);
+
 #endif

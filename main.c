@@ -103,7 +103,7 @@ int main()
 			getcwd(path, max_path_size);
 			strcpy(path, get_relative(path));
 			int ret_val = redir_decider(token, &process_num);
-			if (ret_val == 0)
+			if (!ret_val)
 			{
 				int exiter = decide_command(token, &process_num);
 				if (!exiter)

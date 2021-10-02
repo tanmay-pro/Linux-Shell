@@ -38,6 +38,10 @@ int decide_command(char *str, int *process_num)
 	{
 		pinfo(str);
 	}
+	else if(strcmp(token, "jobs") == 0)
+	{
+		jobs_decider(str, process_num);
+	}
 	else
 	{
 		fg_bg_decider(str, process_num);
