@@ -39,6 +39,7 @@ typedef struct process
 {
 	int proc_id;
 	char proc_name[max_process_name];
+	int job_num;
 } process;
 
 process proc[max_process_num];
@@ -74,5 +75,8 @@ void input_output_redir(char *file_in, char *file_out, char *str, int *proc_coun
 int redir_decider(char *str, int *proc_count);
 
 void jobs_decider(char *str, int *proc_count);
+void sig(char *str, int *proc_size);
+void convert_fg(char *str, int *proc_size);
+void convert_bg(char *str, int *proc_size);
 
 #endif

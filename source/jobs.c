@@ -4,9 +4,9 @@
 void sort_jobs(printprc *stopped, int n)
 {
     // Sort jobs on the basis of process name
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j <= n - i - 1; j++)
+        for (int j = 0; j < n - i - 1; j++)
         {
             if (strcmp(stopped[j].name, stopped[j + 1].name) > 0)
             {
@@ -21,7 +21,7 @@ void sort_jobs(printprc *stopped, int n)
 
 void jobs_decider(char *str, int *proc_size)
 {
-    char *nstr = (char *)malloc(sizeof(char) * (strlen(str) + 3));
+    char nstr[strlen(str) + 1];
     strcpy(nstr, str);
     char *token, *saveptr = NULL;
     token = strtok_r(nstr, " \t\n", &saveptr);
@@ -29,7 +29,7 @@ void jobs_decider(char *str, int *proc_size)
     int c = 0;
     while (token != NULL)
     {
-        strcmp(args[c], token);
+        strcpy(args[c], token);
         c++;
         token = strtok_r(NULL, " \t\n", &saveptr);
     }
@@ -38,40 +38,37 @@ void jobs_decider(char *str, int *proc_size)
         printf("goyshell: jobs: Invalid number of arguments\n");
         return;
     }
+    int rt = 0, st = 0;
+    for (int i = 0; i < c; i++)
+    {
+        if (strcmp(args[i], "-r") == 0)
+        {
+            rt = 1;
+        }
+        else if (strcmp(args[i], "-s") == 0)
+        {
+            st = 1;
+        }
+    }
+    if (c == 2 && rt == 1)
+    {
+        jobs(str, proc_size, 'R');
+    }
+    else if (c == 2 && st == 1)
+    {
+        jobs(str, proc_size, 'T');
+    }
+    else if (c == 1)
+    {
+        jobs(str, proc_size, '\0');
+    }
+    else if (c == 3 && st == 1 && rt == 1)
+    {
+        jobs(str, proc_size, '\0');
+    }
     else
     {
-        int rt = 0, st = 0;
-        for (int i = 0; i < c; i++)
-        {
-            if (strcmp(args[i], "-r") == 0)
-            {
-                rt = 1;
-            }
-            else if (strcmp(args[i], "-s") == 0)
-            {
-                st = 1;
-            }
-        }
-        if (c == 2 && rt == 1)
-        {
-            jobs(str, proc_size, 'R');
-        }
-        else if (c == 2 && st == 1)
-        {
-            jobs(str, proc_size, 'S');
-        }
-        else if (c == 1)
-        {
-            jobs(str, proc_size, '\0');
-        }
-        else if (c == 3 && st == 1 && rt == 1)
-        {
-            jobs(str, proc_size, '\0');
-        }
-        else
-        {
-            printf("goyshell: jobs: Invalid Arguments\n");
-        }
+        printf("goyshell: jobs: Invalid Arguments\n");
     }
 }
 
@@ -85,9 +82,8 @@ void jobs(char *str, int *proc_size, char character)
     {
         if (proc[i].proc_id != -1)
         {
-            pid_t pid = proc[i].proc_id;
             char generate[max_size] = "/proc/";
-            sprintf(generate, "/proc/%d/", pid);
+            sprintf(generate, "/proc/%d/", proc[i].proc_id);
             char path_status[max_path_size];
             path_status[0] = '\0';
             strcpy(path_status, generate);
@@ -97,31 +93,31 @@ void jobs(char *str, int *proc_size, char character)
             fscanf(fp, "%s %s %s", a, a, t);
             if (character == '\0')
             {
-                print_counter++;
-                selected[print_counter].job_num = print_counter;
-                selected[print_counter].pid = pid;
+                selected[print_counter].job_num = proc[i].job_num;
+                selected[print_counter].pid = proc[i].proc_id;
                 strcpy(selected[print_counter].name, proc[i].proc_name);
                 selected[print_counter].status = t[0];
+                print_counter++;
             }
             else
             {
-                if (t[0] == character)
+                if (t[0] == character || (character == 'R' && t[0] == 'S'))
                 {
-                    print_counter++;
-                    selected[print_counter].job_num = print_counter;
-                    selected[print_counter].pid = pid;
+                    selected[print_counter].job_num = proc[i].job_num;
+                    selected[print_counter].pid = proc[i].proc_id;
                     strcpy(selected[print_counter].name, proc[i].proc_name);
                     selected[print_counter].status = t[0];
+                    print_counter++;
                 }
             }
         }
     }
     sort_jobs(selected, print_counter);
-    for (int i = 1; i <= print_counter; i++)
+    for (int i = 0; i < print_counter; i++)
     {
-        if(selected[i].status == 'R')
+        if (selected[i].status == 'R' || selected[i].status == 'S')
             printf("[%d] Running %s [%d]\n", selected[i].job_num, selected[i].name, selected[i].pid);
-        else if (selected[i].status == 'S')
+        else if (selected[i].status == 'T')
             printf("[%d] Stopped %s [%d]\n", selected[i].job_num, selected[i].name, selected[i].pid);
     }
     return;

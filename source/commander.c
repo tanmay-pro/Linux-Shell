@@ -38,9 +38,21 @@ int decide_command(char *str, int *process_num)
 	{
 		pinfo(str);
 	}
-	else if(strcmp(token, "jobs") == 0)
+	else if (strcmp(token, "jobs") == 0)
 	{
 		jobs_decider(str, process_num);
+	}
+	else if (strcmp(token, "sig") == 0)
+	{
+		sig(str, process_num);
+	}
+	else if(strcmp(token, "fg") == 0)
+	{
+		convert_fg(str, process_num);
+	}
+	else if (strcmp(token, "bg") == 0)
+	{
+		convert_bg(str, process_num);
 	}
 	else
 	{

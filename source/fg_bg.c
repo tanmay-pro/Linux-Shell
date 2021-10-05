@@ -58,6 +58,15 @@ void fg(char *str)
 		tcsetpgrp(0, getpgid(shellPid));
 		signal(SIGTTOU, SIG_DFL);
 		signal(SIGTTIN, SIG_DFL); // Resume back to default execution
+
+		// if (WIFSTOPPED(status))
+		// {
+		//     kill(pid, SIGSTOP);
+
+		//     proc[*proc_size].proc_id = pid;
+		//     strcpy(proc[*proc_size].name, proc[i].name);
+		//     (*proc_size)++;
+		// }
 	}
 }
 
@@ -103,6 +112,7 @@ void bg(char *str, int *process_num)
 		printf("%d\n", pid);
 		proc[*process_num].proc_id = pid;
 		strcpy(proc[*process_num].proc_name, str);
+		proc[*process_num].job_num = (*process_num) + 1;
 		(*process_num)++;
 	}
 }
