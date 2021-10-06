@@ -1,10 +1,13 @@
 #include "../include/function_def.h"
 
-void output_redir(char *file_name, char *str, int *proc_count)
+void output_redir(char *file_name, char *str, int *proc_count, char ch)
 {
     int orig_fd;
     int new_fd;
-    new_fd = open(file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (ch == 'f')
+        new_fd = open(file_name, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    else
+        new_fd = open(file_name, O_WRONLY | O_APPEND | O_CREAT, 0644);
     if (new_fd == -1)
     {
         perror("open ");
@@ -52,7 +55,7 @@ void input_redir(char *file_name, char *str, int *proc_count)
     return;
 }
 
-void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count)
+void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count, char ch)
 {
     int orig_in_fd, new_in_fd;
     int orig_out_fd, new_out_fd;
@@ -62,7 +65,10 @@ void input_output_redir(char *file_in, char *file_out, char *str, int *proc_coun
         printf("goyshell: %s: No such file or directory\n", file_in);
         return;
     }
-    new_out_fd = open(file_out, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    if (ch == 'f')
+        new_out_fd = open(file_out, O_WRONLY | O_CREAT | O_TRUNC, 0644);
+    else
+        new_out_fd = open(file_out, O_WRONLY | O_APPEND | O_CREAT, 0644);
     if (new_out_fd == -1)
     {
         perror("open");
@@ -104,6 +110,7 @@ int redir_decider(char *str, int *proc_count)
     char *ptr = NULL, *token;
     token = strtok_r(cpy, " \n\t", &ptr);
     int i = 0;
+    int append_check = 0;
     int set_in = 0, set_out = 0, pos_in = -1, pos_out = -1;
     while (token != NULL)
     {
@@ -118,6 +125,12 @@ int redir_decider(char *str, int *proc_count)
         {
             set_in = 1;
             pos_in = i;
+        }
+        else if (strcmp(token, ">>") == 0)
+        {
+            set_out = 1;
+            pos_out = i;
+            append_check = 1;
         }
         token = strtok_r(NULL, " \n\t", &ptr);
     }
@@ -144,7 +157,10 @@ int redir_decider(char *str, int *proc_count)
                 }
             }
         }
-        input_output_redir(args[pos_in], args[pos_out], new_str, proc_count);
+        if (append_check == 1)
+            input_output_redir(args[pos_in], args[pos_out], new_str, proc_count, 't');
+        else
+            input_output_redir(args[pos_in], args[pos_out], new_str, proc_count, 'f');
         return 1;
     }
     else if (set_in == 1)
@@ -196,7 +212,10 @@ int redir_decider(char *str, int *proc_count)
                 }
             }
         }
-        output_redir(args[pos_out], new_str, proc_count);
+        if (append_check == 1)
+            output_redir(args[pos_out], new_str, proc_count, 't');
+        else
+            output_redir(args[pos_out], new_str, proc_count, 'f');
         return 1;
     }
     else

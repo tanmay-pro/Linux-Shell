@@ -70,9 +70,9 @@ char *get_relative(char *str); // Location: string_func.c // Function: Get relat
 
 // Part 2
 
-void output_redir(char *file_name, char *str, int *proc_count);
+void output_redir(char *file_name, char *str, int *proc_count, char c);
 void input_redir(char *file_name, char *str, int *proc_count);
-void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count);
+void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count, char c);
 int redir_decider(char *str, int *proc_count);
 
 void jobs_decider(char *str, int *proc_count);
