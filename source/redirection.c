@@ -10,7 +10,7 @@ void output_redir(char *file_name, char *str, int *proc_count)
         perror("open ");
         return;
     }
-    dup2(STDOUT_FILENO, orig_fd);
+    orig_fd = dup(STDOUT_FILENO);
     if (dup2(new_fd, STDOUT_FILENO) < 0)
     {
         perror("Unable to duplicate file descriptor.");
@@ -36,7 +36,7 @@ void input_redir(char *file_name, char *str, int *proc_count)
         printf("goyshell: %s: No such file or directory\n", file_name);
         return;
     }
-    dup2(STDIN_FILENO, orig_fd);
+    orig_fd = dup(STDIN_FILENO);
     if (dup2(new_fd, STDIN_FILENO) < 0)
     {
         perror("Unable to duplicate file descriptor.");
@@ -67,13 +67,13 @@ void input_output_redir(char *file_in, char *file_out, char *str, int *proc_coun
     {
         perror("open");
     }
-    dup2(STDIN_FILENO, orig_in_fd);
+    orig_in_fd = dup(STDIN_FILENO);
     if (dup2(new_in_fd, STDIN_FILENO) < 0)
     {
         perror("Unable to duplicate file descriptor.");
         return;
     }
-    dup2(STDOUT_FILENO, orig_out_fd);
+    orig_out_fd = dup(STDOUT_FILENO);
     if (dup2(new_out_fd, STDOUT_FILENO) < 0)
     {
         perror("Unable to duplicate file descriptor.");

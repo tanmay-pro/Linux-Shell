@@ -28,6 +28,7 @@
 #define max_process_num 100
 #define max_size 200
 #define max_date_size 200
+#define max_commands 10
 
 #define max_command_size max_path_size
 
@@ -78,5 +79,6 @@ void jobs_decider(char *str, int *proc_count);
 void sig(char *str, int *proc_size);
 void convert_fg(char *str, int *proc_size);
 void convert_bg(char *str, int *proc_size);
+
 
 #endif
