@@ -29,28 +29,6 @@ char* substr(const char *src, int m, int n)
 	return dest;
 }
 
-char *remove_ws_middle(char *str)
-{
-	char *final = (char*)malloc(sizeof(char)* (strlen(str) + 1));
-	int pos = 0;
-	final[pos] = str[0];
-	pos++;
-	for(int i = 1; i< strlen(str); i++)
-	{
-		if(str[i] == ' ' && str[i-1]== ' ')
-		{
-			;
-		}
-		else
-		{
-			final[pos] = str[i];
-			pos++;
-		}
-	}
-	final[pos] = '\0';
-	return final;
-}
-
 int x_part_of_y(char *str1, char *str2)
 {
 	int set = 0;
@@ -66,5 +44,16 @@ int x_part_of_y(char *str1, char *str2)
 		return 1;
 	else
 		return 0;
-	
+}
+
+char *get_relative(char *str)
+{
+	char temp2[max_path_size];
+	temp2[0] = '~';
+	temp2[1] = '\0';
+	if (x_part_of_y(home, str))
+	{
+		strcpy(str, strcat(temp2, substr(str, (int)strlen(home), (int)strlen(str))));
+	} // To Get Relative path if it is above in directory order
+	return str;
 }

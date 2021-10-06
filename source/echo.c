@@ -1,12 +1,21 @@
 // Created by tanmaypro on 12/09/21.
 #include "../include/function_def.h"
 
-void echo_func(char str[])
+void echo_func(char *str)
 {
-	char *final_str;
-	final_str = substr(str, 5, (int)strlen(str));
-	char *trimmed_str;
-	trimmed_str = trimString(final_str);
-	char *final_ans = remove_ws_middle(trimmed_str);
-	printf("%s\n", final_ans);
+	char *token, *saveptr = NULL;
+	char args[max_number_args][max_size_args];
+	int i = 0;
+	token = strtok_r(str, " \t\n", &saveptr);
+	while(token != NULL)
+	{
+		strcpy(args[i], token);
+		i++;
+		token = strtok_r(NULL, " \t\n", &saveptr);
+	}
+	for(int j = 1; j < i; j++)
+	{
+		printf("%s ", args[j]);
+	}
+	printf("\n");
 }

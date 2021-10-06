@@ -1,3 +1,0 @@
-/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/tanmaypro/Desktop/git/goyshell/cmake-build-debug/CMakeFiles/goyshell.dir
