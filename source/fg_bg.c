@@ -11,11 +11,11 @@ void fg_bg_decider(char *str, int *proce)
 	}
 	else
 	{
-		fg(str);
+		fg(str, proce);
 	}
 }
 
-void fg(char *str)
+void fg(char *str, int *max_proc)
 {
 	int pid = fork();
 	if (pid == 0)
@@ -59,18 +59,19 @@ void fg(char *str)
 		signal(SIGTTOU, SIG_DFL);
 		signal(SIGTTIN, SIG_DFL); // Resume back to default execution
 
-		// if (WIFSTOPPED(status))
-		// {
-		//     kill(pid, SIGSTOP);
+		if (WIFSTOPPED(status)) // To handle ctrl + Z
+		{
+			kill(pid, SIGSTOP);
 
-		//     proc[*proc_size].proc_id = pid;
-		//     strcpy(proc[*proc_size].name, proc[i].name);
-		//     (*proc_size)++;
-		// }
+			proc[*max_proc].proc_id = pid;
+			strcpy(proc[*max_proc].proc_name, str);
+			proc[*max_proc].job_num = *max_proc + 1;
+			(*max_proc)++;
+		}
 	}
 }
 
-void bg(char *str, int *process_num)
+void bg(char *str, int *max_proc)
 {
 	int pid = fork();
 	if (pid == 0)
@@ -110,9 +111,9 @@ void bg(char *str, int *process_num)
 			return;
 		}
 		printf("%d\n", pid);
-		proc[*process_num].proc_id = pid;
-		strcpy(proc[*process_num].proc_name, str);
-		proc[*process_num].job_num = (*process_num) + 1;
-		(*process_num)++;
+		proc[*max_proc].proc_id = pid;
+		strcpy(proc[*max_proc].proc_name, str);
+		proc[*max_proc].job_num = (*max_proc) + 1;
+		(*max_proc)++;
 	}
 }

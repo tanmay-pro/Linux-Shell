@@ -71,21 +71,24 @@ void input_output_redir(char *file_in, char *file_out, char *str, int *proc_coun
     if (dup2(new_in_fd, STDIN_FILENO) < 0)
     {
         perror("Unable to duplicate file descriptor.");
+        return;
     }
     dup2(STDOUT_FILENO, orig_out_fd);
     if (dup2(new_out_fd, STDOUT_FILENO) < 0)
     {
         perror("Unable to duplicate file descriptor.");
+        return;
     }
     int exiter = decide_command(str, proc_count);
     if (!exiter)
     {
         exit(0);
     }
-    dup2(orig_out_fd, STDOUT_FILENO);
-    dup2(orig_in_fd, STDIN_FILENO);
     close(new_in_fd);
     close(new_out_fd);
+    dup2(orig_out_fd, STDOUT_FILENO);
+    dup2(orig_in_fd, STDIN_FILENO);
+
     return;
 }
 

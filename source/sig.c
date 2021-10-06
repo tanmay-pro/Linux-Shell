@@ -33,7 +33,6 @@ void sig(char *str, int *proc_size)
                 }
                 return;
             }
-            return;
         }
     }
     printf("goyshell: sig: No such job\n");

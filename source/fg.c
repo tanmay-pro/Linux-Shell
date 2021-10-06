@@ -29,7 +29,6 @@ void convert_fg(char *str, int *proc_size)
         {
             if (job == proc[i].job_num)
             {
-                // kill(proc[i].pid, SIGCONT); // If the process was in stopped state, then it was causing problems
                 pid_t pid = proc[i].proc_id;
                 pid_t pid_shell = getpid();
 
@@ -47,14 +46,15 @@ void convert_fg(char *str, int *proc_size)
                 signal(SIGTTOU, SIG_DFL);
                 signal(SIGTTIN, SIG_DFL);
 
-                // if (WIFSTOPPED(status))
-                // {
-                //     kill(pid, SIGSTOP);
+                if (WIFSTOPPED(status))
+                {
+                    kill(pid, SIGSTOP);
 
-                //     proc[*proc_size].proc_id = pid;
-                //     strcpy(proc[*proc_size].name, proc[i].name);
-                //     (*proc_size)++;
-                // }
+                    proc[*proc_size].proc_id = pid;
+                    strcpy(proc[*proc_size].proc_name, proc[i].proc_name);
+                    proc[*proc_size].job_num = proc[i].job_num;
+                    (*proc_size)++;
+                }
                 return;
             }
         }

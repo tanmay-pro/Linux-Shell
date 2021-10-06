@@ -86,6 +86,8 @@ int main()
 	}
 	while (1)
 	{
+		signal(SIGINT, null_func);
+		signal(SIGTSTP, null_func);
 		char *command = NULL, *ptr = NULL, *token;
 		getcwd(path, max_path_size);
 		strcpy(path, get_relative(path));
@@ -94,7 +96,9 @@ int main()
 		int return_check = getline(&command, &comm_inp, stdin); // Take input commands
 		if (return_check == -1)
 		{
-			printf("goyshell: Error in taking command input\n");
+			perror("");
+			printf("%d\n", errno);
+			// printf("goyshell: Error in taking command input\n");
 			exit(1);
 		} // If Error in taking command input
 		token = strtok_r(command, "\n;", &ptr);
