@@ -96,9 +96,7 @@ int main()
 		int return_check = getline(&command, &comm_inp, stdin); // Take input commands
 		if (return_check == -1)
 		{
-			perror("");
-			printf("%d\n", errno);
-			// printf("goyshell: Error in taking command input\n");
+			printf("goyshell: Error in taking command input\n");
 			exit(1);
 		} // If Error in taking command input
 		token = strtok_r(command, "\n;", &ptr);
@@ -106,13 +104,20 @@ int main()
 		{
 			getcwd(path, max_path_size);
 			strcpy(path, get_relative(path));
-			int ret_val = redir_decider(token, &process_num);
-			if (!ret_val)
+			if (pipe_checker(token) == 1)
 			{
-				int exiter = decide_command(token, &process_num);
-				if (!exiter)
+				piping_func(token, &process_num);
+			}
+			else
+			{
+				int ret_val = redir_decider(token, &process_num);
+				if (!ret_val)
 				{
-					exit(0);
+					int exiter = decide_command(token, &process_num);
+					if (!exiter)
+					{
+						exit(0);
+					}
 				}
 			}
 			token = strtok_r(NULL, "\n;", &ptr);

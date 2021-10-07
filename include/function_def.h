@@ -59,7 +59,7 @@ void ls_a(char *str);							 // Location: ls.c // Function: Perform ls -a operat
 void ls_l(char *str);							 // Location: ls.c // Function: Perform ls -l operation
 void ls_al(char *str);							 // Location: ls.c // Function: Perform ls -al, -la, -a -l, etc. operations
 void ls(char *str);								 // Location: ls.c // Function: Perform ls operation
-void fg(char *str, int *proc_se);								 // Location: fg.c // Function: Perform an operation in foreground
+void fg(char *str, int *proc_se);				 // Location: fg.c // Function: Perform an operation in foreground
 void bg(char *str, int *proc_se);				 // Location: bg.c // Function: Perform an operation in background
 void fg_bg_decider(char *str, int *proc_se);	 // Location: fg_bg.c // Function: Decide whether to implement a foreground process or a bakground process
 void repeat(char *str, int *proc_se);			 // Location: repeat.c // Function: Repeat command
@@ -80,5 +80,7 @@ void sig(char *str, int *proc_size);
 void convert_fg(char *str, int *proc_size);
 void convert_bg(char *str, int *proc_size);
 
+int pipe_checker(char *str);
+void piping_func(char *str, int *process_size);
 
 #endif
