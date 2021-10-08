@@ -63,11 +63,11 @@ char *get_relative(char *str)
 
 int tokenizer2(char *str, char *args[max_number_args], char *sep)
 {
-	char *ptr = NULL, *token;
+	char *ptr = NULL, *token = NULL;
 	int i;
 	for (i = 0; i < max_number_args; i++)
 	{
-		args[i] = (char *)malloc(sizeof(char) * max_size_args);
+		args[i] = (char *)calloc(max_size_args, sizeof(char));
 	}
 	char cpy[strlen(str) + 1];
 	strcpy(cpy, str);

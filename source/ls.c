@@ -38,8 +38,10 @@ void ls_decider(char *str)
 void ls_a(char *str)
 {
 	char final_path[max_path_size];
+	char *nstr = (char *)malloc(sizeof(char) * (strlen(str) + 3));
+	strcpy(nstr, str);
 	char *token, *ptr = NULL;
-	token = strtok_r(str, " \t\n", &ptr);
+	token = strtok_r(nstr, " \t\n", &ptr);
 	int c = 0;
 	while (token != NULL)
 	{
@@ -97,7 +99,9 @@ void ls_l(char *str)
 {
 	char final_path[max_path_size];
 	char *token, *ptr = NULL;
-	token = strtok_r(str, " \t\n", &ptr);
+	char *nstr = (char *)malloc(sizeof(char) * (strlen(str) + 3));
+	strcpy(nstr, str);
+	token = strtok_r(nstr, " \t\n", &ptr);
 	int c = 0;
 	while (token != NULL)
 	{
@@ -227,7 +231,9 @@ void ls_al(char *str)
 {
 	char final_path[max_path_size];
 	char *token, *ptr = NULL;
-	token = strtok_r(str, " \t\n", &ptr);
+	char *nstr = (char *)malloc(sizeof(char) * (strlen(str) + 3));
+	strcpy(nstr, str);
+	token = strtok_r(nstr, " \t\n", &ptr);
 	int c = 0;
 	while (token != NULL)
 	{
@@ -350,7 +356,9 @@ void ls(char *str)
 {
 	char final_path[max_path_size];
 	char *token, *ptr = NULL;
-	token = strtok_r(str, " \t\n", &ptr);
+	char *nstr = (char *)malloc(sizeof(char) * (strlen(str) + 3));
+	strcpy(nstr, str);
+	token = strtok_r(nstr, " \t\n", &ptr);
 	int c = 0;
 	while (token != NULL)
 	{

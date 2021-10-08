@@ -21,8 +21,8 @@
 #include <sys/utsname.h>
 #include <grp.h>
 
-#define max_path_size 1000
-#define max_number_args 10
+#define max_path_size 2000
+#define max_number_args 20
 #define max_size_args 100
 #define max_process_name 1000
 #define max_process_num 100

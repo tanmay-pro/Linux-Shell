@@ -5,6 +5,7 @@ void replay_func(char *str, int *proc_size)
     char *args[max_number_args];
     int count = tokenizer2(str, args, " \t\n");
     char command[max_command_size];
+    strcpy(command, "\0");
     int pos_i = -1;
     int pos_p = -1;
     int pos_c = -1;
@@ -23,12 +24,39 @@ void replay_func(char *str, int *proc_size)
             pos_c = i;
         }
     }
+    printf("pos_i = %d\n", pos_i);
+    printf("pos_p = %d\n", pos_p);
+    printf("pos_c = %d\n", pos_c);
     if (pos_i == -1 || pos_p == -1 || pos_c == -1)
     {
         printf("goyshell: replay: missing arguments\n");
         return;
     }
-    if (pos_i < pos_p)
+    if (pos_i < pos_p && pos_c < pos_i)
+    {
+        for (int i = pos_c + 1; i < pos_i; i++)
+        {
+            strcat(command, args[i]);
+            strcat(command, " ");
+        }
+    }
+    else if (pos_p < pos_i && pos_c < pos_p)
+    {
+        for (int i = pos_p + 1; i < pos_i; i++)
+        {
+            strcat(command, args[i]);
+            strcat(command, " ");
+        }
+    }
+    else if (pos_p > pos_c && pos_c > pos_i)
+    {
+        for (int i = pos_c + 1; i < pos_p; i++)
+        {
+            strcat(command, args[i]);
+            strcat(command, " ");
+        }
+    }
+    else if (pos_i > pos_c && pos_c > pos_p)
     {
         for (int i = pos_c + 1; i < pos_i; i++)
         {
@@ -38,7 +66,7 @@ void replay_func(char *str, int *proc_size)
     }
     else
     {
-        for (int i = pos_c + 1; i < pos_p; i++)
+        for (int i = pos_c + 1; i < count; i++)
         {
             strcat(command, args[i]);
             strcat(command, " ");
