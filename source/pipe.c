@@ -19,7 +19,9 @@ void piping_func(char *str, int *process_size)
     char *prev = (char *)malloc(max_command_size);
     int pipes[2], new_fd = STDIN_FILENO;
     char *token, *saveptr = NULL;
-    token = strtok_r(str, "|", &saveptr);
+    char cpy[strlen(str) + 1];
+    strcpy(cpy, str);
+    token = strtok_r(cpy, "|", &saveptr);
     while (token != NULL)
     {
         strcpy(prev, token);
@@ -30,7 +32,6 @@ void piping_func(char *str, int *process_size)
             perror("goyshell: Piping");
             return;
         }
-
         pid_t pid = fork();
         if (pid < 0)
         {
@@ -40,12 +41,12 @@ void piping_func(char *str, int *process_size)
         if (pid == 0)
         {
             close(pipes[0]);
-            dup2(new_fd, STDIN_FILENO); //take input from prvout (initially stdin)
+            dup2(new_fd, STDIN_FILENO);
             if (token != NULL)
-            {                                  //if another piped process after it
-                dup2(pipes[1], STDOUT_FILENO); //all output to pipe-writeend (otherwise to stdout)
+            {
+                dup2(pipes[1], STDOUT_FILENO); 
             }
-            close(pipes[1]); //closing the FD, not the file (stored in STDOUT now)
+            close(pipes[1]); 
             int ret_val = redir_decider(prev, process_size);
             if (!ret_val)
             {
