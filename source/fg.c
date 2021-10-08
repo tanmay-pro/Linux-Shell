@@ -2,20 +2,9 @@
 
 void convert_fg(char *str, int *proc_size)
 {
-    char nstr[strlen(str) + 1];
-    strcpy(nstr, str);
-    char *token, *saveptr = NULL;
-    token = strtok_r(nstr, " \t\n", &saveptr);
-    char args[max_number_args][max_size_args];
-    int c = 0;
-    while (token != NULL)
-    {
-        strcpy(args[c], token);
-        c++;
-        token = strtok_r(NULL, " \t\n", &saveptr);
-    }
-
-    if (c > 2)
+    char *args[max_number_args];
+    int count = tokenizer2(str, args, " \t\n");
+    if (count > 2)
     {
         printf("goyshell: fg: Invalid number of arguments\n");
         return;

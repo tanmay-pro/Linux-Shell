@@ -2,17 +2,14 @@
 
 int pipe_checker(char *str)
 {
-    char nstr[strlen(str) + 1];
-    strcpy(nstr, str);
-    char *token, *saveptr = NULL;
-    token = strtok_r(nstr, " \t\n", &saveptr);
-    while (token != NULL)
+    char *args[max_number_args];
+    int arg_counter = tokenizer2(str, args, " \t\n");
+    for (int i = 0; i < arg_counter; i++)
     {
-        if (strcmp(token, "|") == 0)
+        if (strcmp(args[i], "|") == 0)
         {
             return 1;
         }
-        token = strtok_r(NULL, " \t\n", &saveptr);
     }
     return 0;
 }
@@ -25,7 +22,7 @@ void piping_func(char *str, int *process_size)
     token = strtok_r(str, "|", &saveptr);
     while (token != NULL)
     {
-        strcpy(prev, token);    
+        strcpy(prev, token);
         token = strtok_r(NULL, "|", &saveptr);
         int ret = pipe(pipes);
         if (ret < 0)
@@ -41,7 +38,7 @@ void piping_func(char *str, int *process_size)
             return;
         }
         if (pid == 0)
-        { 
+        {
             close(pipes[0]);
             dup2(new_fd, STDIN_FILENO); //take input from prvout (initially stdin)
             if (token != NULL)
@@ -61,7 +58,7 @@ void piping_func(char *str, int *process_size)
             exit(0);
         }
         else
-        { 
+        {
             int status = 0;
             wait(&status); //wait for child to end
             close(pipes[1]);

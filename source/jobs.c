@@ -21,25 +21,15 @@ void sort_jobs(printprc *stopped, int n)
 
 void jobs_decider(char *str, int *proc_size)
 {
-    char nstr[strlen(str) + 1];
-    strcpy(nstr, str);
-    char *token, *saveptr = NULL;
-    token = strtok_r(nstr, " \t\n", &saveptr);
-    char args[max_number_args][max_size_args];
-    int c = 0;
-    while (token != NULL)
-    {
-        strcpy(args[c], token);
-        c++;
-        token = strtok_r(NULL, " \t\n", &saveptr);
-    }
-    if (c > 3)
+    char *args[max_number_args];
+    int count = tokenizer2(str, args, " \t\n");
+    if (count > 3)
     {
         printf("goyshell: jobs: Invalid number of arguments\n");
         return;
     }
     int rt = 0, st = 0;
-    for (int i = 0; i < c; i++)
+    for (int i = 0; i < count; i++)
     {
         if (strcmp(args[i], "-r") == 0)
         {
@@ -50,19 +40,19 @@ void jobs_decider(char *str, int *proc_size)
             st = 1;
         }
     }
-    if (c == 2 && rt == 1)
+    if (count == 2 && rt == 1)
     {
         jobs(str, proc_size, 'R');
     }
-    else if (c == 2 && st == 1)
+    else if (count == 2 && st == 1)
     {
         jobs(str, proc_size, 'T');
     }
-    else if (c == 1)
+    else if (count == 1)
     {
         jobs(str, proc_size, '\0');
     }
-    else if (c == 3 && st == 1 && rt == 1)
+    else if (count == 3 && st == 1 && rt == 1)
     {
         jobs(str, proc_size, '\0');
     }

@@ -3,24 +3,17 @@
 
 void cd(char *str)
 {
-	char cpy[strlen(str) + 1];
-	strcpy(cpy, str);
-	int count = 0;
-	char *tok, *saveptr = NULL;
-	tok = strtok_r(cpy, " \t\n", &saveptr);
-	while (tok != NULL)
-	{
-		count++;
-		tok = strtok_r(NULL, " \t\n", &saveptr);
-	}
+	char *args[max_number_args];
+	int count = tokenizer2(str, args, " \t\n");
 	if (count > 2)
 	{
 		printf("goyshell: cd: too many arguments\n");
 		return;
 	}
-
+	char nstr[strlen(str) + 1];
+	strcpy(nstr, str);
 	char *token, *ptr = NULL;
-	token = strtok_r(str, " \t\n", &ptr);
+	token = strtok_r(nstr, " \t\n", &ptr);
 	token = strtok_r(NULL, " \t\n", &ptr);
 	if (token == NULL)
 	{

@@ -46,13 +46,17 @@ int decide_command(char *str, int *process_num)
 	{
 		sig(str, process_num);
 	}
-	else if(strcmp(token, "fg") == 0)
+	else if (strcmp(token, "fg") == 0)
 	{
 		convert_fg(str, process_num);
 	}
 	else if (strcmp(token, "bg") == 0)
 	{
 		convert_bg(str, process_num);
+	}
+	else if (strcmp(token, "replay") == 0)
+	{
+		replay_func(str, process_num);
 	}
 	else
 	{

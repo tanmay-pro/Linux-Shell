@@ -5,16 +5,8 @@
 void pinfo(char *str)
 {
 	char generate[max_size] = "/proc/";
-	char cpy[strlen(str) + 1];
-	strcpy(cpy, str);
-	int arg_counter = 0;
-	char *token, *saveptr = NULL;
-	token = strtok_r(cpy, " \t\n", &saveptr);
-	while (token != NULL)
-	{
-		arg_counter++;
-		token = strtok_r(NULL, " \t\n", &saveptr);
-	}
+	char *args[max_number_args];
+	int arg_counter = tokenizer2(str, args, " \t\n");
 	pid_t pid = getpid();
 	if (arg_counter > 2)
 	{
@@ -23,9 +15,7 @@ void pinfo(char *str)
 	}
 	else if (arg_counter == 2)
 	{
-		token = strtok_r(str, " \t\n", &saveptr);
-		token = strtok_r(NULL, " \t\n", &saveptr);
-		pid = atoi(token);
+		pid = atoi(args[1]);
 	}
 	sprintf(generate, "/proc/%d/", pid);
 	char path_status[max_path_size];

@@ -21,23 +21,8 @@ void fg(char *str, int *max_proc)
 	if (pid == 0)
 	{
 		setpgid(0, 0);
-		char *ptr = NULL, *token;
 		char *args[max_number_args];
-		int i;
-		for (i = 0; i < max_number_args; i++)
-		{
-			args[i] = (char *)malloc(sizeof(char) * max_size_args);
-		}
-		char cpy[strlen(str) + 1];
-		strcpy(cpy, str);
-		token = strtok_r(cpy, " \t\n", &ptr);
-		int count = 0;
-		while (token != NULL)
-		{
-			strcpy(args[count], token);
-			count++;
-			token = strtok_r(NULL, " \t\n", &ptr);
-		}
+		int count = tokenizer2(str, args, " \t\n");
 		args[count] = NULL;
 		int ret_val = execvp(args[0], args);
 		if (ret_val == -1)
@@ -77,23 +62,8 @@ void bg(char *str, int *max_proc)
 	if (pid == 0)
 	{
 		setpgid(0, 0);
-		char *ptr = NULL, *token;
 		char *args[max_number_args];
-		int i;
-		for (i = 0; i < max_number_args; i++)
-		{
-			args[i] = (char *)malloc(sizeof(char) * max_size_args);
-		}
-		char cpy[strlen(str) + 1];
-		strcpy(cpy, str);
-		token = strtok_r(cpy, " \t\n", &ptr);
-		int count = 0;
-		while (token != NULL)
-		{
-			strcpy(args[count], token);
-			count++;
-			token = strtok_r(NULL, " \t\n", &ptr);
-		}
+		int count = tokenizer2(str, args, " \t\n");
 		args[count] = NULL;
 		int ret_val = execvp(args[0], args);
 		if (ret_val == -1)

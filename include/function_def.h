@@ -70,6 +70,8 @@ char *get_relative(char *str); // Location: string_func.c // Function: Get relat
 
 // Part 2
 
+int tokenizer2(char *str, char *args[max_number_args], char *sep);
+
 void output_redir(char *file_name, char *str, int *proc_count, char c);
 void input_redir(char *file_name, char *str, int *proc_count);
 void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count, char c);
@@ -82,5 +84,7 @@ void convert_bg(char *str, int *proc_size);
 
 int pipe_checker(char *str);
 void piping_func(char *str, int *process_size);
+
+void replay_func(char *str, int *proc_size);
 
 #endif

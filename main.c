@@ -102,21 +102,36 @@ int main()
 		token = strtok_r(command, "\n;", &ptr);
 		while (token != NULL)
 		{
+			char command_cpy[max_command_size];
+			strcpy(command_cpy, token);
+			char *command_part_ptr = NULL;
+			char *command_part = strtok_r(command_cpy, " \t\n", &command_part_ptr);
 			getcwd(path, max_path_size);
 			strcpy(path, get_relative(path));
-			if (pipe_checker(token) == 1)
+			if (strcmp(command_part, "replay") == 0 || strcmp(command_part, "repeat") == 0)
 			{
-				piping_func(token, &process_num);
+				int exiter = decide_command(token, &process_num);
+				if (!exiter)
+				{
+					exit(0);
+				}
 			}
 			else
 			{
-				int ret_val = redir_decider(token, &process_num);
-				if (!ret_val)
+				if (pipe_checker(token) == 1)
 				{
-					int exiter = decide_command(token, &process_num);
-					if (!exiter)
+					piping_func(token, &process_num);
+				}
+				else
+				{
+					int ret_val = redir_decider(token, &process_num);
+					if (!ret_val)
 					{
-						exit(0);
+						int exiter = decide_command(token, &process_num);
+						if (!exiter)
+						{
+							exit(0);
+						}
 					}
 				}
 			}

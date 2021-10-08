@@ -3,17 +3,9 @@
 
 void echo_func(char *str)
 {
-	char *token, *saveptr = NULL;
-	char args[max_number_args][max_size_args];
-	int i = 0;
-	token = strtok_r(str, " \t\n", &saveptr);
-	while(token != NULL)
-	{
-		strcpy(args[i], token);
-		i++;
-		token = strtok_r(NULL, " \t\n", &saveptr);
-	}
-	for(int j = 1; j < i; j++)
+	char *args[max_number_args];
+	int count = tokenizer2(str, args, " \t\n");
+	for(int j = 1; j < count; j++)
 	{
 		printf("%s ", args[j]);
 	}

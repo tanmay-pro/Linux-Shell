@@ -3,18 +3,29 @@
 
 void repeat(char *str, int *procsize)
 {
-	char cpy[strlen(str) + 1];
-	strcpy(cpy, str);
-	char *token, *saveptr = NULL;
-	token = strtok_r(cpy, " \t\n", &saveptr);
-	token = strtok_r(NULL, " \t\n", &saveptr);
-	int numb = atoi(token);
+	char *args[max_number_args];
+	int count = tokenizer2(str, args, " \t\n");
+	int numb = atoi(args[1]);
+	char command[max_command_size];
+	strcpy(command, substr(str, 8 + (int)strlen(args[1]), (int)strlen(str)));
 	while (numb--)
 	{
-		int exiter = decide_command(substr(str, 8 + (int)strlen(token), (int)strlen(str)), procsize);
-		if (!exiter)
+		if (pipe_checker(command) == 1)
 		{
-			exit(0);
+			piping_func(command, procsize);
+		}
+		else
+		{
+			int ret_val = redir_decider(command, procsize);
+			if (!ret_val)
+			{
+				int exiter = decide_command(command, procsize);
+				if (!exiter)
+				{
+					exit(0);
+				}
+			}
 		}
 	}
+	return;
 }
