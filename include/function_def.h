@@ -70,17 +70,17 @@ char *get_relative(char *str); // Location: string_func.c // Function: Get relat
 
 // Part 2
 
-int tokenizer2(char *str, char *args[max_number_args], char *sep);
+int tokenizer2(char *str, char *args[max_number_args], char *sep); // Location; sting_func.c // Function: Tokenize a string
 
-void output_redir(char *file_name, char *str, int *proc_count, char c);
-void input_redir(char *file_name, char *str, int *proc_count);
-void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count, char c);
-int redir_decider(char *str, int *proc_count);
+void output_redir(char *file_name, char *str, int *proc_count, char c);						// Location: redirection.c // Function: Perform output redirection
+void input_redir(char *file_name, char *str, int *proc_count);								// Location: redirection.c // Function: Perform input redirection
+void input_output_redir(char *file_in, char *file_out, char *str, int *proc_count, char c); // Location: redirection.c // Function: Perform input and output redirection together in a command
+int redir_decider(char *str, int *proc_count);												// Location: redirection.c // Function: Decide whether to implement redirection or not. And if implement redirection, then which type.
 
-void jobs_decider(char *str, int *proc_count);
-void sig(char *str, int *proc_size);
-void convert_fg(char *str, int *proc_size);
-void convert_bg(char *str, int *proc_size);
+void jobs_decider(char *str, int *proc_count); // Location: jobs.c // Function: Decide whether to implement jobs or not and which version of jobs function.
+void sig(char *str, int *proc_size);		   // Location: sig.c // Function: Perform sig operation on background processes.
+void convert_fg(char *str, int *proc_size);	   // Location: fg.c // Function: Perform fg command on stopped or running background processes.
+void convert_bg(char *str, int *proc_size);	   // Location: bg.c // Function: Perform bg command on stopped background processes.
 
 int pipe_checker(char *str);
 void piping_func(char *str, int *process_size);

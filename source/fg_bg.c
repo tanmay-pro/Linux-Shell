@@ -39,7 +39,7 @@ void fg(char *str, int *max_proc)
 		signal(SIGTTIN, SIG_IGN); // To prevent background processes from interferring with the foreground process
 		tcsetpgrp(0, pid);
 		int status;
-		waitpid(temp, &status, WUNTRACED); // Wait for the child process to finish
+		waitpid(temp, &status, WUNTRACED); // Wait for child process to finish
 		tcsetpgrp(0, getpgid(shellPid));
 		signal(SIGTTOU, SIG_DFL);
 		signal(SIGTTIN, SIG_DFL); // Resume back to default execution

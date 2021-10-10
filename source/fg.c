@@ -12,7 +12,7 @@ void convert_fg(char *str, int *proc_size)
 
     int job = atoi(args[1]);
 
-    for (int i = 0; i < *proc_size; i++)
+    for (int i = 0; i < (*proc_size); i++)
     {
         if (proc[i].proc_id != -1)
         {
@@ -24,7 +24,7 @@ void convert_fg(char *str, int *proc_size)
                 proc[i].proc_id = -1;
 
                 signal(SIGTTOU, SIG_IGN);
-                signal(SIGTTIN, SIG_IGN);
+                signal(SIGTTIN, SIG_IGN); // To prevent background processes from interferring with the foreground process
                 tcsetpgrp(0, getpgid(pid));
 
                 kill(pid, SIGCONT);
@@ -33,7 +33,7 @@ void convert_fg(char *str, int *proc_size)
                 tcsetpgrp(0, pid_shell);
 
                 signal(SIGTTOU, SIG_DFL);
-                signal(SIGTTIN, SIG_DFL);
+                signal(SIGTTIN, SIG_DFL); // Resume back to default execution
 
                 if (WIFSTOPPED(status))
                 {

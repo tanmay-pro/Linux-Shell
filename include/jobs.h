@@ -12,7 +12,7 @@ typedef struct printprc
 
 } printprc;
 
-void jobs(char *str, int *proc_size, char character);
-void sort_jobs(printprc *stopped, int n);
+void jobs(char *str, int *proc_size, char character); // Location: jobs.c // Function: Implement jobs function
+void sort_jobs(printprc *stopped, int n); // Location: jobs.c // Function: Sort jobs according to job number and then name
 
 #endif

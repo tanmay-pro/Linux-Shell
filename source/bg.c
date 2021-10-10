@@ -13,7 +13,7 @@ void convert_bg(char *str, int *proc_size)
 
     int job = atoi(args[1]);
 
-    for (int i = 0; i < *proc_size; i++)
+    for (int i = 0; i < (*proc_size); i++)
     {
         if (proc[i].proc_id != -1)
         {
