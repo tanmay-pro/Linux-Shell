@@ -59,7 +59,7 @@ To delete the binary file, run `make clean`.
     * jobs -r -s
     * jobs -s -r
   * It contains the jobs command which runs the appropriate jobs version and displays all relevant bacground processes with their process ids.
-  * It contains the sort_jobs() command which sorts the jobs according to name and then by number.
+  * It contains the sort_jobs() command which sorts the jobs according to name and then by number (in case command name is same).
 
 * ls.c
   * It contains the ls_decider function which desides whether the ls command is of type:
