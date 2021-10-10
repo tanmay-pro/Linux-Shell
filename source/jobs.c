@@ -62,7 +62,7 @@ void jobs_decider(char *str, int *proc_size)
     }
 }
 
-// T for Stopped and other for Running
+// T for Stopped and R/S for Running
 
 void jobs(char *str, int *proc_size, char character)
 {
@@ -91,7 +91,7 @@ void jobs(char *str, int *proc_size, char character)
             }
             else
             {
-                if (t[0] == character || (character == 'R' && t[0] == 'S'))
+                if (t[0] == character || (character == 'R' && t[0] == 'S') || (character == 'R' && t[0] == 'D'))
                 {
                     selected[print_counter].job_num = proc[i].job_num;
                     selected[print_counter].pid = proc[i].proc_id;
@@ -105,7 +105,7 @@ void jobs(char *str, int *proc_size, char character)
     sort_jobs(selected, print_counter);
     for (int i = 0; i < print_counter; i++)
     {
-        if (selected[i].status == 'R' || selected[i].status == 'S')
+        if (selected[i].status == 'R' || selected[i].status == 'S' || selected[i].status == 'D')
             printf("[%d] Running %s [%d]\n", selected[i].job_num, selected[i].name, selected[i].pid);
         else if (selected[i].status == 'T')
             printf("[%d] Stopped %s [%d]\n", selected[i].job_num, selected[i].name, selected[i].pid);

@@ -37,8 +37,7 @@ void pinfo(char *str)
 		printf("pid -- %d\n", pid);
 		if (getpgid(pid) == pid)
 		{
-			//printf("Process Status -- %s+\n", t);
-			printf("Process Status -- %s\n", t);
+			printf("Process Status -- %s+\n", t);
 		}
 		else
 			printf("Process Status -- %s\n", t);

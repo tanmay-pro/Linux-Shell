@@ -24,7 +24,7 @@
 #define max_path_size 2000
 #define max_number_args 20
 #define max_size_args 100
-#define max_process_name 1000
+#define max_process_name 2000
 #define max_process_num 100
 #define max_size 200
 #define max_date_size 200
@@ -82,9 +82,9 @@ void sig(char *str, int *proc_size);		   // Location: sig.c // Function: Perform
 void convert_fg(char *str, int *proc_size);	   // Location: fg.c // Function: Perform fg command on stopped or running background processes.
 void convert_bg(char *str, int *proc_size);	   // Location: bg.c // Function: Perform bg command on stopped background processes.
 
-int pipe_checker(char *str);
-void piping_func(char *str, int *process_size);
+int pipe_checker(char *str); // Location: pipe.c // Function: Check whether a command has pipe or not.
+void piping_func(char *str, int *process_size); // Location: pipe.c // Function: Perform piping operation.
 
-void replay_func(char *str, int *proc_size);
+void replay_func(char *str, int *proc_size); // Location: replay.c // Function: Perform replay command
 
 #endif
