@@ -1,4 +1,6 @@
 #include "../include/function_def.h"
+#include "../main.h"
+
 
 void replay_func(char *str, int *proc_size)
 {

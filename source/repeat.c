@@ -1,5 +1,6 @@
 // Created by tanmaypro on 9/16/21.
 #include "../include/function_def.h"
+#include "../main.h"
 
 void repeat(char *str, int *procsize)
 {

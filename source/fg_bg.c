@@ -1,5 +1,6 @@
 // Created by tanmaypro on 9/15/21.
 #include "../include/function_def.h"
+#include "../main.h"
 
 void fg_bg_decider(char *str, int *proce)
 {

@@ -1,4 +1,5 @@
 #include "../include/function_def.h"
+#include "../main.h"
 
 int pipe_checker(char *str)
 {

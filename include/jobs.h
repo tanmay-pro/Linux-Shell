@@ -1,12 +1,11 @@
 #ifndef GOYSHELL_JOBS_H
 #define GOYSHELL_JOBS_H
-#include "function_def.h"
 
 typedef struct printprc
 {
 
     int job_num;
-    char name[max_process_name];
+    char name[2000];
     pid_t pid;
     char status;
 

@@ -21,29 +21,12 @@
 #include <sys/utsname.h>
 #include <grp.h>
 
-#define max_path_size 2000
 #define max_number_args 20
 #define max_size_args 100
-#define max_process_name 2000
-#define max_process_num 100
 #define max_size 200
 #define max_date_size 200
 #define max_commands 10
-
 #define max_command_size max_path_size
-
-char path[max_path_size]; // To Get Absolute path at any time
-char home[max_path_size];
-char *prev_des;
-
-typedef struct process
-{
-	int proc_id;
-	char proc_name[max_process_name];
-	int job_num;
-} process;
-
-process proc[max_process_num];
 
 const char *getUserName();						 //Location: prompt.c // Function: To get Username of User
 const char *getSysName();						 //Location: prompt.c // Function: To get System Name

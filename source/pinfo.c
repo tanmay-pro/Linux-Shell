@@ -1,5 +1,5 @@
 // Created by tanmaypro on 9/17/21.
-
+#include "../main.h"
 #include "../include/function_def.h"
 
 void pinfo(char *str)

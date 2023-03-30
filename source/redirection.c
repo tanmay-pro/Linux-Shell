@@ -1,4 +1,5 @@
 #include "../include/function_def.h"
+#include "../main.h"
 
 void output_redir(char *file_name, char *str, int *proc_count, char ch)
 {

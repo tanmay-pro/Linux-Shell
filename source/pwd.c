@@ -1,5 +1,6 @@
 // Created by tanmaypro on 12/09/21.
 #include "../include/function_def.h"
+#include "../main.h"
 
 void pwd_func()
 {

@@ -1,5 +1,6 @@
 #include "../include/function_def.h"
 #include "../include/jobs.h"
+#include "../main.h"
 
 void sort_jobs(printprc *stopped, int n)
 {

@@ -132,3 +132,8 @@ To delete the binary file, run `make clean`.
 * It contains the zombie handler function
 * All the input lines are tokenized using strtok_r considering all arguments and multiple commands in single line if separated by semicolon.
 * You can run more than 1 shell command in  a single line by separating them with a `;`.
+
+### main.h
+
+* Contains global variables in extern form.
+* Contains few Max Size # defines determining max sizes of variables across the program.

@@ -1,4 +1,5 @@
 #include "./include/function_def.h"
+#include "main.h"
 
 void zombie_handler()
 {
@@ -66,6 +67,12 @@ void null_func()
 {
 	;
 }
+
+char path[max_path_size]; // To Get Absolute path at any time
+char home[max_path_size];
+char *prev_des;
+process proc[max_process_num];
+
 
 int main()
 {

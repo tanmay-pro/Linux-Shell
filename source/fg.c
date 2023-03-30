@@ -1,4 +1,5 @@
 #include "../include/function_def.h"
+#include "../main.h"
 
 void convert_fg(char *str, int *proc_size)
 {

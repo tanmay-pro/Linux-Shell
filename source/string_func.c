@@ -1,5 +1,6 @@
 // Created by tanmaypro on 11/09/21.
 #include "../include/function_def.h"
+#include "../main.h"
 
 char *trimString(char *startptr)
 {
