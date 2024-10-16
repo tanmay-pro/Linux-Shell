@@ -12,7 +12,7 @@ void convert_bg(char *str, int *proc_size)
         return;
     }
 
-    int job = atoi(args[1]);
+    int job = atoi(args[1]); // Numeric string to integer
 
     for (int i = 0; i < (*proc_size); i++)
     {
@@ -20,7 +20,8 @@ void convert_bg(char *str, int *proc_size)
         {
             if (proc[i].job_num == job)
             {
-                if (kill(proc[i].proc_id, SIGCONT) < 0)
+                // Tries to continue the execution of the stopped background process
+                if (kill(proc[i].proc_id, SIGCONT) < 0) 
                 {
                     printf("goyshell: bg: Error in conversion\n");
                 }

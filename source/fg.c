@@ -1,7 +1,7 @@
 #include "../include/function_def.h"
 #include "../main.h"
 
-void convert_fg(char *str, int *proc_size)
+void convert_fg(char *str, int *proc_size) // To move a process to the foreground
 {
     char *args[max_number_args];
     int count = tokenizer2(str, args, " \t\n");
@@ -23,12 +23,12 @@ void convert_fg(char *str, int *proc_size)
                 pid_t pid_shell = getpid();
 
                 proc[i].proc_id = -1;
-
+                // Mechanics similar to creation of a fg process
                 signal(SIGTTOU, SIG_IGN);
                 signal(SIGTTIN, SIG_IGN); // To prevent background processes from interferring with the foreground process
                 tcsetpgrp(0, getpgid(pid));
 
-                kill(pid, SIGCONT);
+                kill(pid, SIGCONT); // Continue the execution of the process using SIGCONT
                 int status;
                 waitpid(pid, &status, WUNTRACED);
                 tcsetpgrp(0, pid_shell);
@@ -38,8 +38,8 @@ void convert_fg(char *str, int *proc_size)
 
                 if (WIFSTOPPED(status))
                 {
+                    // To handle stopped processes later on as bg processes
                     kill(pid, SIGSTOP);
-
                     proc[*proc_size].proc_id = pid;
                     strcpy(proc[*proc_size].proc_name, proc[i].proc_name);
                     proc[*proc_size].job_num = proc[i].job_num;

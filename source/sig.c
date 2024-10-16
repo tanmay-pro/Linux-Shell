@@ -18,7 +18,7 @@ void sig(char *str, int *proc_size)
         {
             if (proc[i].job_num == job_number)
             {
-                if (kill(proc[i].proc_id, sig_number) < 0)
+                if (kill(proc[i].proc_id, sig_number) < 0) // Send a signal to some particular job
                 {
                     printf("goyshell: sig: kill: %s\n", strerror(errno));
                 }
