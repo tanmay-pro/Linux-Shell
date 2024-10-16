@@ -4,11 +4,12 @@
 void zombie_handler()
 {
 	int status;
-	int get = waitpid(-1, &status, WNOHANG);
+	int get = waitpid(-1, &status, WNOHANG); // Checks if any child process has changed its state
+	// WNOHANG enables waitpid() to return immediately rather than waiting
 
-	if (get > 0)
+	if (get > 0)  // Get has the process ID of the process which has exited
 	{
-		if (!WIFEXITED(status))
+		if (!WIFEXITED(status)) // Condition satisfied if the process has terminated abnormally
 		{
 			char print[max_process_name] = "";
 			for (int i = 0; i < max_process_num; i++)
@@ -33,13 +34,14 @@ void zombie_handler()
 			{
 				strcpy(print, "Process");
 			}
-			printf("%s with pid %d exited abnormally\n", print, get);
+			printf("%s with pid %d exited abnormally\n", print, get); 
+			// Inform about abnormal exiting
 		}
 	}
 
 	for (int i = 0; i < max_process_num; i++)
 	{
-		if (kill(proc[i].proc_id, 0) == -1)
+		if (kill(proc[i].proc_id, 0) == -1) // The process has exited and does not exist anymore
 		{
 			char print[max_process_name] = "";
 			for (int j = 0; proc[i].proc_name[j] != '\0'; j++)
@@ -93,8 +95,8 @@ int main()
 	}
 	while (1)
 	{
-		signal(SIGINT, null_func);
-		signal(SIGTSTP, null_func);
+		signal(SIGINT, null_func); // Change the default behaviour of ctrl+C to not close the shell
+		signal(SIGTSTP, null_func);  // Change the default behaviour of ctrl+Z issued by the user
 		char *command = NULL, *ptr = NULL, *token;
 		getcwd(path, max_path_size);
 		strcpy(path, get_relative(path));
@@ -106,13 +108,16 @@ int main()
 			printf("goyshell: Error in taking command input\n");
 			exit(1);
 		} // If Error in taking command input
-		token = strtok_r(command, "\n;", &ptr);
+		token = strtok_r(command, "\n;", &ptr); 
+		/* The input is first tokenized on semicolon and newline in
+		order to allow multiple commands on a single line itself
+		*/
 		while (token != NULL)
 		{
 			char command_cpy[max_command_size];
 			strcpy(command_cpy, token);
 			char *command_part_ptr = NULL;
-			char *command_part = strtok_r(command_cpy, " \t\n", &command_part_ptr);
+			char *command_part = strtok_r(command_cpy, " \t\n", &command_part_ptr); // Tokenize each command
 			getcwd(path, max_path_size);
 			strcpy(path, get_relative(path));
 			if (strcmp(command_part, "replay") == 0 || strcmp(command_part, "repeat") == 0)
@@ -144,7 +149,7 @@ int main()
 			}
 			token = strtok_r(NULL, "\n;", &ptr);
 		}
-		signal(SIGCHLD, null_func);
+		signal(SIGCHLD, null_func); // Change default behaviour when child process ends
 		zombie_handler();
 		free(command);
 	}
