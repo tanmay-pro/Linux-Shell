@@ -1,4 +1,4 @@
-# goyshell
+# Linux Shell
 
 Linux Shell implemented in C
 
